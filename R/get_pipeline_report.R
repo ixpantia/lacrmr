@@ -12,12 +12,11 @@
 #' @export
 get_account_information <- function(user_code, api_token, pipelineId) {
   llamado <- paste0("https://api.lessannoyingcrm.com?", "UserCode=", user_code,
-                    "&APIToken=", api_token, "&Function=GetPipelineReport")
-  r <- httr::GET(llamado,
-                 query = list(
-                   PipelineId = pipelineId
-                 )
-  )
+                    "&APIToken=", api_token, "&Function=GetPipelineReport",
+                    "&Parameters=", pipelineId)
+  r <- httr::GET(llamado)
+
+
   contenido <- httr::content(r, "text")
   contenido <- jsonlite::fromJSON(contenido)
   contenido <- as.data.frame(contenido)
@@ -25,7 +24,7 @@ get_account_information <- function(user_code, api_token, pipelineId) {
   return(contenido)
 }
 
-pipelineId <- 3571432457735893289690341276529
+pipelineId <- "3571432457735893289690341276529"
 
 
 # Prueba debe de ser que si no hay un parametro bien identificado el cuadro
