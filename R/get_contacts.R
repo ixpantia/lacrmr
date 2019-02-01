@@ -1,6 +1,7 @@
+
+#' @title get_contacts
 #'
 #' @description Return the contacts information from Less annoying CRM
-#' @title get_contacts
 #'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
