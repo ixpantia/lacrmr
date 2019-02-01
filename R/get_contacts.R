@@ -1,4 +1,3 @@
-#' @import httr
 #'
 #' @description Return the contacts information from Less annoying CRM
 #' @title get_contacts
@@ -10,9 +9,9 @@
 get_contacts <- function(user_code, api_token) {
   llamado <- paste0("https://api.lessannoyingcrm.com?", "UserCode=", user_code,
                     "&APIToken=", api_token, "&Function=SearchContacts")
-  r <- GET(llamado)
-  contenido <- content(r, "text")
-  contenido <- fromJSON(contenido)
+  r <- httr::GET(llamado)
+  contenido <- httr::content(r, "text")
+  contenido <- jsonlite::fromJSON(contenido)
   contenido <- as.data.frame(contenido)
 
   return(contenido)
