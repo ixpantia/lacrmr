@@ -22,17 +22,9 @@ get_contacts <- function(user_code, api_token, contactid) {
   contenido <- jsonlite::fromJSON(contenido)
   contenido <- as.data.frame(contenido)
 
-  contenido <- contenido %>%
-    filter(!is.na(Result.FirstName))
-
-  prueba <- list()
-  for (i in nrow(contenido)) {
-    # print(contenido$Result.Email)
-    prueba[i] <- contenido$Result.Email[i]
-  }
-
-  contenido$Result.Email[1]
-
+  correo <- contenido %>%
+    filter(!is.na(Result.FirstName)) %>%
+    select(Result.Email)
 
   return(contenido)
 }
