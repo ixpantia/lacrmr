@@ -22,8 +22,6 @@ get_contacts <- function(user_code, api_token) {
 # $EndpointURL, $UserCode, $APIToken, $Function, $Parameters)
 
 # url <- "https://www.lessannoyingcrm.com/app/"
-# user_code <- "6EBF0"
-# api_token <- "GCQB7XPQNR1Z5BRV2XMHM0PFGCFQJGFZK8MP98SY0TWSCVJK88"
 # url <- "https://api.lessannoyingcrm.com"
 # funcion <- "GetUserInfo"
 

@@ -13,9 +13,12 @@
 get_account_information <- function(user_code, api_token, pipelineId) {
   llamado <- paste0("https://api.lessannoyingcrm.com?", "UserCode=", user_code,
                     "&APIToken=", api_token, "&Function=GetPipelineReport",
-                    "&Parameters=", pipelineId)
-  r <- httr::GET(llamado)
+                    "&PipelineId=3571432457735893289690341276529")
+  # url <- parse_url(llamado)
+  # url$params <- (PipelineId = "3571432457735893289690341276529")
+  # build_url(url)
 
+  r <- httr::GET(llamado)
 
   contenido <- httr::content(r, "text")
   contenido <- jsonlite::fromJSON(contenido)
@@ -24,8 +27,6 @@ get_account_information <- function(user_code, api_token, pipelineId) {
   return(contenido)
 }
 
-pipelineId <- "3571432457735893289690341276529"
-
-
+# PipelineId = 3571432457735893289690341276529
 # Prueba debe de ser que si no hay un parametro bien identificado el cuadro
 # final va a tener una columna que se llama "succes" y va a contener failure
