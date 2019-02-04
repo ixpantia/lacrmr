@@ -7,19 +7,28 @@
 #' @param api_token The api token to connect to your account
 #'
 #' @export
-get_contacts <- function(user_code, api_token) {
+get_contacts <- function(user_code, api_token, contactid) {
   lacram_url <- "https://api.lessannoyingcrm.com"
 
   r <- httr::GET(lacram_url, query = list(
     UserCode = user_code,
     APIToken = api_token,
-    Function = 'SearchContacts'
+    Function = 'SearchContacts',
+    Parameters = contactid
   )
   )
 
   contenido <- httr::content(r, "text")
   contenido <- jsonlite::fromJSON(contenido)
   contenido <- as.data.frame(contenido)
+
+  prueba <- tibble()
+  for (i in seq_along(contenido)) {
+    prueba[i] <- contenido$Result.Email[[i]]
+  }
+
+  contenido$Result.Email[1]
+
 
   return(contenido)
 }
