@@ -9,9 +9,15 @@
 #'
 #' @export
 get_account_information <- function(user_code, api_token) {
-  llamado <- paste0("https://api.lessannoyingcrm.com?", "UserCode=", user_code,
-                    "&APIToken=", api_token, "&Function=GetUserInfo")
-  r <- httr::GET(llamado)
+  lacram_url <- "https://api.lessannoyingcrm.com"
+
+  r <- httr::GET(lacram_url, query = list(
+    UserCode = user_code,
+    APIToken = api_token,
+    Function = 'GetUserInfo'
+      )
+  )
+
   contenido <- httr::content(r, "text")
   contenido <- jsonlite::fromJSON(contenido)
   contenido <- as.data.frame(contenido)
