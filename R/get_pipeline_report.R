@@ -10,15 +10,16 @@
 #' @param api_token The api token to connect to your account
 #'
 #' @export
-get_account_information <- function(user_code, api_token, pipelineId) {
-  llamado <- paste0("https://api.lessannoyingcrm.com?", "UserCode=", user_code,
-                    "&APIToken=", api_token, "&Function=GetPipelineReport",
-                    "&PipelineId=3571432457735893289690341276529")
-  # url <- parse_url(llamado)
-  # url$params <- (PipelineId = "3571432457735893289690341276529")
-  # build_url(url)
+get_account_information <- function(user_code, api_token, pipelineid) {
+  lacram_url <- "https://api.lessannoyingcrm.com"
 
-  r <- httr::GET(llamado)
+  r <- httr::GET(lacram_url, query = list(
+    UserCode = user_code,
+    APIToken = api_token,
+    Function = 'GetPipelineReport',
+    Parameters = paste0('{"PipelineId":','"', pipelineid, '"', '}')
+    )
+  )
 
   contenido <- httr::content(r, "text")
   contenido <- jsonlite::fromJSON(contenido)
@@ -27,6 +28,13 @@ get_account_information <- function(user_code, api_token, pipelineId) {
   return(contenido)
 }
 
-# PipelineId = 3571432457735893289690341276529
+api_token <- Sys.getenv("api_token")
+user_code <- Sys.getenv("user_code")
+pipelineid = Sys.getenv("pipelineid")
+
+
+
+
+
 # Prueba debe de ser que si no hay un parametro bien identificado el cuadro
 # final va a tener una columna que se llama "succes" y va a contener failure
