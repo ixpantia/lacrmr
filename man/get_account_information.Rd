@@ -5,9 +5,9 @@
 \alias{get_account_information}
 \title{get_account_information}
 \usage{
-get_account_information(user_code, api_token)
+get_account_information(user_code, api_token, pipelineid)
 
-get_account_information(user_code, api_token)
+get_account_information(user_code, api_token, pipelineid)
 }
 \arguments{
 \item{user_code}{The user code to identify your account}
@@ -21,5 +21,7 @@ get_account_information(user_code, api_token)
 \description{
 Return your user account information from Less annoying CRM
 
-Return your pipeline report information from Less annoying CRM
+Return your pipeline report information from Less annoying CRM.
+For this you will need to know the pipelineId, StatusId, and CustomFieldId
+You can get this PipelineId's at https://www.lessannoyingcrm.com/app/Settings/Api
 }
