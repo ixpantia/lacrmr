@@ -36,6 +36,9 @@ get_contacts <- function(user_code, api_token, contactid) {
 
   # Aplanar lista uniforme y adjuntarla con dataframe completo por posicion
   phone <- do.call(rbind.data.frame, contenido$Result.Phone)
+  phone <- phone %>%
+    select(Text, Type) %>%
+    select(phone_numer = Text, phone_type = Type)
 
   contenido <- data.frame(contenido, phone)
 
