@@ -86,15 +86,11 @@ get_contacts <- function(user_code, api_token, contactid) {
 
   # Intento para cambiar a NA
   for (i in 1:nrow(nombres)) {
-    print(length(nombres$Result.Phone[[i]]$Text) == 0)
+    nombres$Result.Phone[i][(length(nombres$Result.Phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
   }
 
-  nombres$Result.Phone[length(nombres$Result.Phone[[i]]) == 0] <- NA
 
-  nombres$Result.Phone[[2]]$Text <- NA
-
-  return(contenido)
-}
+2}
 
 # Estos son los parametros:
 # $EndpointURL, $UserCode, $APIToken, $Function, $Parameters)
