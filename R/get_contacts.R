@@ -28,10 +28,15 @@ get_contacts <- function(user_code, api_token, contactid) {
   contenido <- contenido %>%
     filter(!is.na(Result.FirstName))
 
+  # Limpiar nombres del data frame
+  contenido <- janitor::clean_names(contenido)
+
+
+# Limpieza PHONE ----------------------------------------------------------
   # Cambio de listas vacias por data.frame similar con
   # estructura igual a listas con entradas
   for (i in 1:nrow(contenido)) {
-    contenido$Result.Phone[i][(length(contenido$Result.Phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
+    contenido$result_phone[i][(length(contenido$result_phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
   }
 
   # Aplanar lista uniforme y adjuntarla con dataframe completo por posicion
@@ -41,6 +46,17 @@ get_contacts <- function(user_code, api_token, contactid) {
     select(phone_numer = Text, phone_type = Type)
 
   contenido <- data.frame(contenido, phone)
+
+# Limpieza MAIL -----------------------------------------------------------
+  for (i in 1:nrow(contenido)) {
+    contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA))
+  }
+
+  email <- do.call(rbind.data.frame, contenido$result_email)
+  email <- email %>%
+    select(Text, Type) %>%
+    select(email = Text, email_type = Type)
+
 
 
 }
