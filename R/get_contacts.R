@@ -58,6 +58,18 @@ get_contacts <- function(user_code, api_token, contactid) {
     select(email = Text, email_type = Type)
 
 
+# Limpieza address --------------------------------------------------------
+
+  for (i in 1:nrow(contenido)) {
+    contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA))
+  }
+
+
+# Limpieza website --------------------------------------------------------
+
+
+
+
 # Limpiar tabla final -----------------------------------------------------
 
   contenido <- bind_cols(contenido, phone, email) %>%
