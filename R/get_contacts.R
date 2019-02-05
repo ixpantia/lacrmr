@@ -59,20 +59,20 @@ get_contacts <- function(user_code, api_token, contactid) {
 
 
 # Limpieza address --------------------------------------------------------
-
-   for (i in 1:nrow(contenido)) {
-     contenido$result_address[i][(length(contenido$result_address[[i]]$Text) == 0)] <- list(data.frame("Street" = NA,
-                                                                                                   "City" = NA,
-                                                                                                   "State" = NA,
-                                                                                                   "Zip" = NA,
-                                                                                                   "Country" = NA,
-                                                                                                   "Type" = NA))
-   }
-
-   address <- do.call(rbind.data.frame, contenido$result_address)
-   email <- email %>%
-     select(Text, Type) %>%
-     select(email = Text, email_type = Type)
+# TODO// hay que arreglar esta funcion y ver como limpiarla
+#    for (i in 1:nrow(contenido)) {
+#      contenido$result_address[i][(length(contenido$result_address[[i]]$Text) == 0)] <- list(data.frame("Street" = NA,
+#                                                                                                    "City" = NA,
+#                                                                                                    "State" = NA,
+#                                                                                                    "Zip" = NA,
+#                                                                                                    "Country" = NA,
+#                                                                                                    "Type" = NA))
+#    }
+#
+#    address <- do.call(rbind.data.frame, contenido$result_address)
+#    email <- email %>%
+#      select(Text, Type) %>%
+#      select(email = Text, email_type = Type)
 
 
 # Limpieza website --------------------------------------------------------
