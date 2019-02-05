@@ -21,15 +21,23 @@ get_contacts <- function(user_code, api_token, contactid) {
   contenido <- httr::content(r, "text")
   contenido <- jsonlite::fromJSON(contenido)
   contenido <- as.data.frame(contenido)
+
+  # Hay que traer solo nombres de contactos, de lo contrario llamado
+  # trae como lista anidada empresas a las que pertenece el usuario
+  # como un contacto independiente, ingresando muchos NA's que ensucian.
   contenido <- contenido %>%
     filter(!is.na(Result.FirstName))
 
-  # Intento para cambiar a NA en data.frame
+  # Cambio de listas vacias por data.frame similar con
+  # estructura igual a listas con entradas
   for (i in 1:nrow(contenido)) {
     contenido$Result.Phone[i][(length(contenido$Result.Phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
   }
 
+  # Aplanar lista uniforme y adjuntarla con dataframe completo por posicion
   phone <- do.call(rbind.data.frame, contenido$Result.Phone)
+
+  contenido <- data.frame(contenido, phone)
 
 
 }
