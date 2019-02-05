@@ -87,7 +87,7 @@ get_contacts <- function(user_code, api_token, contactid) {
 
   contenido <- bind_cols(contenido, phone, email, website) %>%
     select(-result_email, -result_phone, -result_website, -result_address,
-           -result_contact_custom_fields)
+           -result_contact_custom_fields, -result_custom_fields)
 
 }
 
