@@ -14,7 +14,7 @@ get_contacts <- function(user_code, api_token, contactid) {
     UserCode = user_code,
     APIToken = api_token,
     Function = 'SearchContacts',
-    Parameters = contactid
+    Parameters = paste0('{"ContactId":','"', contactid, '"', '}')
       )
   )
 
