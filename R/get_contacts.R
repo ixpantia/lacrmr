@@ -24,13 +24,12 @@ get_contacts <- function(user_code, api_token, contactid) {
   contenido <- contenido %>%
     filter(!is.na(Result.FirstName))
 
-  nombres <- contenido %>%
-    filter(!is.na(Result.FirstName))
-
   # Intento para cambiar a NA en data.frame
-  for (i in 1:nrow(nombres)) {
-    nombres$Result.Phone[i][(length(nombres$Result.Phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
+  for (i in 1:nrow(contenido)) {
+    contenido$Result.Phone[i][(length(contenido$Result.Phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
   }
+
+  phone <- do.call(rbind.data.frame, contenido$Result.Phone)
 
 
 }
