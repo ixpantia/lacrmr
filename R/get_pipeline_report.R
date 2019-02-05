@@ -11,9 +11,9 @@
 #'
 #' @export
 get_pipeline_report <- function(user_code, api_token, pipelineid) {
-  lacram_url <- "https://api.lessannoyingcrm.com"
+  lacrm_url <- "https://api.lessannoyingcrm.com"
 
-  r <- httr::GET(lacram_url, query = list(
+  r <- httr::GET(lacrm_url, query = list(
     UserCode = user_code,
     APIToken = api_token,
     Function = 'GetPipelineReport',

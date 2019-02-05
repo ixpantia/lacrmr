@@ -8,9 +8,9 @@
 #'
 #' @export
 get_contacts <- function(user_code, api_token, contactid) {
-  lacram_url <- "https://api.lessannoyingcrm.com"
+  lacrm_url <- "https://api.lessannoyingcrm.com"
 
-  r <- httr::GET(lacram_url, query = list(
+  r <- httr::GET(lacrm_url, query = list(
     UserCode = user_code,
     APIToken = api_token,
     Function = 'SearchContacts',
