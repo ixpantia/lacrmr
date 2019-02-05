@@ -40,7 +40,7 @@ get_contacts <- function(user_code, api_token, contactid) {
   }
 
   # Aplanar lista uniforme y adjuntarla con dataframe completo por posicion
-  phone <- do.call(rbind.data.frame, contenido$Result.Phone)
+  phone <- do.call(rbind.data.frame, contenido$result_phone)
   phone <- phone %>%
     select(Text, Type) %>%
     select(phone_numer = Text, phone_type = Type)
@@ -60,29 +60,32 @@ get_contacts <- function(user_code, api_token, contactid) {
 
 # Limpieza address --------------------------------------------------------
 
-  for (i in 1:nrow(contenido)) {
-    contenido$result_address[i][(length(contenido$result_address[[i]]$Text) == 0)] <- list(data.frame("Street" = NA,
-                                                                                                  "City" = NA,
-                                                                                                  "State" = NA,
-                                                                                                  "Zip" = NA,
-                                                                                                  "Country" = NA,
-                                                                                                  "Type" = NA))
-  }
+   for (i in 1:nrow(contenido)) {
+     contenido$result_address[i][(length(contenido$result_address[[i]]$Text) == 0)] <- list(data.frame("Street" = NA,
+                                                                                                   "City" = NA,
+                                                                                                   "State" = NA,
+                                                                                                   "Zip" = NA,
+                                                                                                   "Country" = NA,
+                                                                                                   "Type" = NA))
+   }
 
-  email <- do.call(rbind.data.frame, contenido$result_address)
-  email <- email %>%
-    select(Text, Type) %>%
-    select(email = Text, email_type = Type)
+   address <- do.call(rbind.data.frame, contenido$result_address)
+   email <- email %>%
+     select(Text, Type) %>%
+     select(email = Text, email_type = Type)
 
 
 # Limpieza website --------------------------------------------------------
+  for (i in 1:nrow(contenido)) {
+    contenido$result_website[i][(length(contenido$result_website[[i]]$Text) == 0)] <- list(data.frame("Text" = NA))
+  }
+
+  website <- do.call(rbind.data.frame, contenido$result_website)
 
 
+  # Limpiar tabla final -----------------------------------------------------
 
-
-# Limpiar tabla final -----------------------------------------------------
-
-  contenido <- bind_cols(contenido, phone, email) %>%
+  contenido <- bind_cols(contenido, phone, email, website) %>%
     select(-result_email, -result_phone, -result_website, -result_address)
 
 }
