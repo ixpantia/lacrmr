@@ -7,14 +7,14 @@
 #' @param api_token The api token to connect to your account
 #'
 #' @export
-get_contacts <- function(user_code, api_token, contactid) {
+get_contacts <- function(user_code, api_token, search_term) {
   lacrm_url <- "https://api.lessannoyingcrm.com"
 
   r <- httr::GET(lacrm_url, query = list(
     UserCode = user_code,
     APIToken = api_token,
     Function = 'SearchContacts',
-    Parameters = paste0('{"ContactId":','"', contactid, '"', '}')
+    Parameters = paste0('{"SearchTerms":','"', search_term, '"', '}')
       )
   )
 
