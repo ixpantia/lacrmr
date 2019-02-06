@@ -5,9 +5,10 @@
 #'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
+#' @param search_term The contact name or other term to make an specific call to the API
 #'
 #' @export
-get_contacts <- function(user_code, api_token, search_term) {
+get_contacts <- function(user_code, api_token, search_term = "") {
   lacrm_url <- "https://api.lessannoyingcrm.com"
 
   r <- httr::GET(lacrm_url, query = list(
@@ -90,8 +91,4 @@ get_contacts <- function(user_code, api_token, search_term) {
            -result_contact_custom_fields, -result_custom_fields)
 
 }
-
-# Estos son los parametros:
-# $EndpointURL, $UserCode, $APIToken, $Function, $Parameters)
-
 
