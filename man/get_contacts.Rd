@@ -4,7 +4,7 @@
 \alias{get_contacts}
 \title{get_contacts}
 \usage{
-get_contacts(user_code, api_token)
+get_contacts(user_code, api_token, contactid)
 }
 \arguments{
 \item{user_code}{The user code to identify your account}
@@ -12,5 +12,5 @@ get_contacts(user_code, api_token)
 \item{api_token}{The api token to connect to your account}
 }
 \description{
-Return the contacts information from Less annoying CRM
+Return the contacts information from Less annoying CRM.
 }
