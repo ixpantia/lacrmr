@@ -1,5 +1,5 @@
-
-
+#' @import dplyr
+#'
 #' @title get_account_information
 #'
 #' @description Return your user account information from Less annoying CRM
@@ -34,6 +34,3 @@ get_account_information <- function(user_code, api_token) {
     )
 
 }
-
-
-

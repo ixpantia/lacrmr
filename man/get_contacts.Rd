@@ -11,7 +11,8 @@ get_contacts(user_code, api_token, search_term = "")
 
 \item{api_token}{The api token to connect to your account}
 
-\item{search_term}{The contact name or other term to make an specific call to the API}
+\item{search_term}{The contact name or other term to make an specific call
+to the API. If you  want to search for group enter "Group:GROUP_NAME"}
 }
 \description{
 Return the contacts information from Less annoying CRM.
