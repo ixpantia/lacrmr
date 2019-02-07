@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: c(
   person(family="ixpantia, SRL", role = "aut", email = "hola@ixpantia.com"),
   person("Frans", "van Dunné", role="cre", email="frans@ixpantia.com"),
-  person("Ronny", "Hernández Mora", role="ctb", email="ronny@ixpantia.com")
+  person("Ronny", "Hernández Mora", role="cre", email="ronny@ixpantia.com")
   )
 
 Description: Connect to the Less Annoying CRM API to get your data clean and tidy.
