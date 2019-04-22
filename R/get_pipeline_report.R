@@ -4,7 +4,7 @@
 #'
 #' @description Return your pipeline report information from Less annoying CRM.
 #' For this you will need to know the pipelineId, StatusId, and CustomFieldId
-#' You can get this PipelineId's at https://www.lessannoyingcrm.com/app/Settings/Api#'
+#' You can get this PipelineId's at https://www.lessannoyingcrm.com/app/Settings/Api'
 #'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
