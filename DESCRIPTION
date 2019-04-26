@@ -1,13 +1,15 @@
 Package: lacrmr
-Title: What the Package Does (One Line, Title Case)
+Title: Connect to the Less Annoying CRM API
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+Authors@R: c(
+  person(family="ixpantia, SRL", role = "cph", email = "hola@ixpantia.com"),
+  person("Frans", "van Dunné", role="aut", email="frans@ixpantia.com"),
+  person("Ronny", "Hernández Mora", role=c("cre", "aut"), email="ronny@ixpantia.com")
+  )
+Description: Connect to the Less Annoying CRM API to get your data clean and tidy.
+License: GPL + file LICENCE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+Suggests: 
+    testthat

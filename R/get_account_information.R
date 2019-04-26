@@ -1,5 +1,5 @@
-
-
+#' @import dplyr
+#'
 #' @title get_account_information
 #'
 #' @description Return your user account information from Less annoying CRM
@@ -9,21 +9,28 @@
 #'
 #' @export
 get_account_information <- function(user_code, api_token) {
-  lacrm_url <- "https://api.lessannoyingcrm.com"
+  if (missing(user_code)) {
+    warning("Please add a valid user code")
+  } else if (missing(api_token)) {
+    warning("Please add a valid API token")
+  } else
+    tryCatch(
+      {
+        lacrm_url <- "https://api.lessannoyingcrm.com"
 
-  r <- httr::GET(lacrm_url, query = list(
-    UserCode = user_code,
-    APIToken = api_token,
-    Function = 'GetUserInfo'
-      )
-  )
+        r <- httr::GET(lacrm_url, query = list(
+          UserCode = user_code,
+          APIToken = api_token,
+          Function = 'GetUserInfo'
+        )
+        )
 
-  contenido <- httr::content(r, "text")
-  contenido <- jsonlite::fromJSON(contenido)
-  contenido <- as.data.frame(contenido)
+        contenido <- httr::content(r, "text")
+        contenido <- jsonlite::fromJSON(contenido)
+        contenido <- as.data.frame(contenido)
 
-  return(contenido)
+        return(contenido)
+      }
+    )
+
 }
-
-
-
