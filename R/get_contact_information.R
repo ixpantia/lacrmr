@@ -106,3 +106,41 @@ get_contact_information <- function(user_code, api_token, search_term = "") {
     )
 
 }
+#
+#
+# # Limpieza PHONE ----------------------------------------------------------
+# # Cambio de listas vacias por data.frame similar con
+# # estructura igual a listas con entradas
+# for (i in 1:nrow(contenido)) {
+#   contenido$result_phone[i][(length(contenido$result_phone[[1]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
+# }
+#
+# # Aplanar lista uniforme y adjuntarla con dataframe completo por posicion
+# phone <- do.call(rbind.data.frame, contenido$result_phone)
+# phone <- phone %>%
+#   select(Text, Type) %>%
+#   select(phone_numer = Text, phone_type = Type)
+#
+# # Limpieza MAIL -----------------------------------------------------------
+# for (i in 1:nrow(contenido)) {
+#   contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA))
+# }
+#
+# email <- do.call(rbind.data.frame, contenido$result_email)
+# email <- email %>%
+#   select(Text, Type) %>%
+#   select(email = Text, email_type = Type)
+#
+# # Limpieza website --------------------------------------------------------
+# for (i in 1:nrow(contenido)) {
+#   contenido$result_website[i][(length(contenido$result_website[[i]]$Text) == 0)] <- list(data.frame("Text" = NA))
+# }
+#
+# website <- do.call(rbind.data.frame, contenido$result_website)
+#
+#
+# # Limpiar tabla final -----------------------------------------------------
+#
+# contenido <- bind_cols(contenido, phone, email, website) %>%
+#   select(-result_email, -result_phone, -result_website, -result_address,
+#          -result_contact_custom_fields, -result_custom_fields)
