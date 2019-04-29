@@ -31,18 +31,14 @@ get_contact_information <- function(user_code, api_token, search_term = "") {
         contenido <- httr::content(r, "text")
         contenido <- jsonlite::fromJSON(contenido,
                                         simplifyVector = TRUE)
-        contenido <- as.data.frame(contenido)
-        contenido <- jsonlite::flatten(contenido)
 
+        for (i in 1:length(contenido$Contact)){
+          # print(contenido[["Contact"]][[i]])
+          contenido$Contact[i][(is.null(contenido$Contact[[i]]) == TRUE)] <- NA
+          contenido$Contact[i][(is.list(contenido$Contact[[i]]) == TRUE)] <- NA
+          contenido$Contact[i][(contenido$Contact[[i]] == "")] <- NA
+        }
 
-        # Hay que traer solo nombres de contactos, de lo contrario llamado
-        # trae como lista anidada empresas a las que pertenece el usuario
-        # como un contacto independiente, ingresando muchos NA's que ensucian.
-        contenido <- contenido %>%
-          filter(!is.na(Result.FirstName))
-
-        # Limpiar nombres del data frame
-        contenido <- janitor::clean_names(contenido)
 
 
         # Limpieza PHONE ----------------------------------------------------------
