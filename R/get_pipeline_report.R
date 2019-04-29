@@ -40,14 +40,15 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
         # Limpiar nombres del data frame
         contenido <- janitor::clean_names(contenido)
 
+        # Eliminar columnas información de contacto debido a que esta info
+        # la trae la función get_contact_information
 
+        contenido <- contenido %>%
+          select(-result_email, -result_phone, -result_address,
+                 -result_website, -result_contact_custom_fields)
 
         return(contenido)
       }
     )
 
 }
-
-# api_token <- Sys.getenv("api_token")
-# user_code <- Sys.getenv("user_code")
-# pipelineid = Sys.getenv("pipelineid")
