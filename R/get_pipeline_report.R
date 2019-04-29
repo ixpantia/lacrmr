@@ -31,14 +31,11 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
         )
 
         contenido <- httr::content(r, "text")
-        contenido <- jsonlite::fromJSON(contenido)
+        contenido <- jsonlite::fromJSON(contenido,
+                                        simplifyVector = TRUE)
         contenido <- as.data.frame(contenido)
+        contenido <- jsonlite::flatten(contenido)
 
-        # Hay que traer solo nombres de contactos, de lo contrario llamado
-        # trae como lista anidada empresas a las que pertenece el usuario
-        # como un contacto independiente, ingresando muchos NA's que ensucian.
-        contenido <- contenido %>%
-          filter(!is.na(Result.FirstName))
 
         # Limpiar nombres del data frame
         contenido <- janitor::clean_names(contenido)
@@ -47,7 +44,7 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
         # Cambio de listas vacias por data.frame similar con
         # estructura igual a listas con entradas
         for (i in 1:nrow(contenido)) {
-          contenido$result_phone[i][(length(contenido$result_phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
+          contenido$result_phone[i][(length(contenido$result_phone[[1]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
         }
 
         # Aplanar lista uniforme y adjuntarla con dataframe completo por posicion

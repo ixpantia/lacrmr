@@ -1,8 +1,9 @@
 #' @import dplyr
 #'
-#' @title get_contacts
+#' @title search_contacts
 #'
-#' @description Return the contacts information from Less annoying CRM.
+#' @description Return TRUE or FALSE if the contacts information exist on
+#' Less annoying CRM.
 #'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account

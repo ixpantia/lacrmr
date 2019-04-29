@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_contacts.R
 \name{get_contacts}
 \alias{get_contacts}
-\title{get_contacts}
+\title{search_contacts}
 \usage{
 get_contacts(user_code, api_token, search_term = "")
 }
@@ -15,5 +15,6 @@ get_contacts(user_code, api_token, search_term = "")
 to the API. If you  want to search for group enter "Group:GROUP_NAME"}
 }
 \description{
-Return the contacts information from Less annoying CRM.
+Return TRUE or FALSE if the contacts information exist on
+Less annoying CRM.
 }
