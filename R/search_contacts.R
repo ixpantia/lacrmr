@@ -31,18 +31,16 @@ search_contacts <- function(user_code, api_token, search_term = "") {
 
         contenido <- httr::content(r, "text")
         contenido <- jsonlite::fromJSON(contenido)
-        contenido <- as.data.frame(contenido)
+        # TODO//: Si hay varios concatenados que pasan a la funcion ordenar output
 
-        # Hay que traer solo nombres de contactos, de lo contrario llamado
-        # trae como lista anidada empresas a las que pertenece el usuario
-        # como un contacto independiente, ingresando muchos NA's que ensucian.
-        contenido <- contenido %>%
-          filter(!is.na(Result.FirstName))
+        # Devolver respuesta de una manera legible al humano
 
-        # Limpiar nombres del data frame
-        contenido <- janitor::clean_names(contenido)
+        if(contenido$Success == TRUE) {
+          print("The search item does exists in the CRM")
+        } else {
+          print("There is no such item in the CRM")
+        }
 
-        return(contenido)
       }
     )
 
