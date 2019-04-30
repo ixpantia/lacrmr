@@ -35,7 +35,7 @@ get_contact_information <- function(user_code, api_token, search_term = "") {
         for (i in 1:length(contenido$Contact)){
           # print(contenido[["Contact"]][[i]])
           contenido$Contact[i][(is.null(contenido$Contact[[i]]) == TRUE)] <- NA
-          contenido$Contact[i][(is.list(contenido$Contact[[i]]) == TRUE)] <- NA
+          contenido$Contact[i][(sjmisc::is_empty(contenido$Contact[[i]]) == TRUE)] <- NA
           contenido$Contact[i][(contenido$Contact[[i]] == "")] <- NA
         }
 
