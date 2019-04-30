@@ -10,7 +10,7 @@
 #' to the API.
 #'
 #' @export
-get_contact_information <- function(user_code, api_token, search_term = "") {
+get_contact_information <- function(user_code, api_token, contact_id = "") {
   if (missing(user_code)) {
     warning("Please add a valid user code")
   } else if (missing(api_token)) {

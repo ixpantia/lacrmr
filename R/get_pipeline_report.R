@@ -8,6 +8,7 @@
 #'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
+#' @param pipelineid The id of the pipeline you want to get the report from
 #'
 #' @export
 get_pipeline_report <- function(user_code, api_token, pipelineid) {
