@@ -19,6 +19,20 @@ library(lacrmr)
 ```
 
 
+# Why using lacrmr?
+
+lacrmr is a package that allows you to connect with your [Less Annoying CRM](https://www.lessannoyingcrm.com/) account and obtain the data of your
+customers and contacts.
+
+# What information can we obtain with lacrmr
+
+The lacrmr package have four functions:
+
+- `get_pipeline_report()`
+- `search_contacts()`
+- `get_contact_information()`
+- `get_account_information()`
+
 In order to make the package works, you would need to create an .Renviron
 file inside your working directory that should contain environment variables
 as your api token, user code and pipelineID
