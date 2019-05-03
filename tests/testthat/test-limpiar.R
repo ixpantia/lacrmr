@@ -2,6 +2,8 @@ context("limpieza")
 
 testthat::test_that("listas son eliminadas de datos de contactos", {
 
+  datos <- readRDS(contact_information)
+
 
   limpieza <- get_pipeline_report(api_token = api_token,
                                   user_code = user_code,

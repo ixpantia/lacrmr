@@ -43,7 +43,6 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
 
         # Eliminar columnas información de contacto debido a que esta info
         # la trae la función get_contact_information
-
         contenido <- contenido %>%
           select(-result_email, -result_phone, -result_address,
                  -result_website, -result_contact_custom_fields)
