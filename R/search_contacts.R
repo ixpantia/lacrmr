@@ -34,7 +34,9 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         # TODO//: Si hay varios concatenados que pasan a la funcion ordenar output
 
         # Devolver respuesta de una manera legible al humano
-
+        # Esto no es valido porque TRUE se refiere a si hizo la conexion
+        # Es falso o verdadero si hay datos en result o no.
+        # TODO//: Mejorar la lógica de esta funcion.
         if(contenido$Success == TRUE) {
           print("The search item does exists in the CRM")
         } else {
