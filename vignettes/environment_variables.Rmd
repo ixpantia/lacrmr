@@ -1,0 +1,29 @@
+---
+title: "environment_variables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{environment_variables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lacrmr)
+```
+
+
+In order to make the package works, you would need to create an .Renviron
+file inside your working directory that should contain environment variables
+as your api token, user code and pipelineID
+
+
+
+
+
