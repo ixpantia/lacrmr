@@ -4,12 +4,10 @@ testthat::test_that("listas son eliminadas de datos de contactos", {
 
   datos <- readRDS(contact_information)
 
-
-  limpieza <- get_pipeline_report(api_token = api_token,
-                                  user_code = user_code,
-                                  pipelineid = pipelineid)
-
-  expect_true(class(limpieza$result_contact_id) != "list")
+  limpieza <- get_test_contact_information(datos)
+  expect_true(class(limpieza) != "list")
+  expect_true(ncol(limpieza) == 24)
+  expect_true(nrow(limpieza) == 1)
 
 })
 
