@@ -1,5 +1,5 @@
 ---
-title: "environment_variables"
+title: "lacrmr"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{environment_variables}
@@ -24,7 +24,7 @@ library(lacrmr)
 lacrmr is a package that allows you to connect with your [Less Annoying CRM](https://www.lessannoyingcrm.com/) account and obtain the data of your
 customers and contacts.
 
-# What information can we obtain with lacrmr
+# What information can we obtain with lacrmr?
 
 The lacrmr package have four functions:
 
@@ -33,7 +33,7 @@ The lacrmr package have four functions:
 - `get_contact_information()`
 - `get_account_information()`
 
-**`get_pipeline_report()`**
+## **`get_pipeline_report()`**
 
 This function returns the data from one specific pipeline that you create
 on your CRM. For this you will need to obtain the pipeline id that you want
@@ -74,11 +74,54 @@ The variables to obtain with this function are:
 [30] "result_custom_fields_descripcion_oportunidad"
 [31] "result_custom_fields_valor"
 ```
+## **`search_contacts()`**
+
+This function will make you sure about if a contact id exists or not on your
+CRM records. 
+
+If the contact id you provided to the function does indeed exists, you will
+see the message `The search item does exists in the CRM`. If not, the
+message will be `There is no such item in the CRM`
+
+## **`get_contact_information()`**
+
+This function will allow you to return the contact information storage in your
+CRM. When you use this function with a specific contact id, you will see
+the next variables:
+
+```
+ [1] "contact_contact_id"            "contact_user_id"              
+ [3] "contact_company_id"            "contact_email"                
+ [5] "contact_phone"                 "contact_text"                 
+ [7] "contact_address_street"        "contact_address_city"         
+ [9] "contact_address_state"         "contact_address_country"      
+[11] "contact_address_zip"           "contact_address_type"         
+[13] "contact_address_type_id"       "contact_background_info"      
+[15] "contact_birthday"              "contact_is_company"           
+[17] "contact_company_name"          "contact_industry"             
+[19] "contact_num_employees"         "contact_creation_date"        
+[21] "contact_edited_date"           "contact_original_google_id"   
+[23] "contact_custom_fields"         "contact_contact_custom_fields"
+```
+## **`get_account_information()`**
+
+This function will simply show the information of your account or the account
+from which you entered the credentials to obtain the access to lacrm. The
+variables will be:
+
+```
+ [1] "FirstName"          "LastName"           "Email"             
+ [4] "UserId"             "AccountId"          "IsOwner"           
+ [7] "IsAdmin"            "BlockExports"       "Timezone"          
+[10] "DateUserCreated"    "DateAccountCreated" "Success" 
+```
 
 # Obtaining credentials:
 In order to make the package works, you would need to create an .Renviron
 file inside your working directory that should contain environment variables
-as your api token, user code and pipelineID
+as your api token, user code and pipelineID.
+
+All this information you will find it at lacrm. 
 
 
 
