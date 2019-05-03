@@ -33,6 +33,49 @@ The lacrmr package have four functions:
 - `get_contact_information()`
 - `get_account_information()`
 
+**`get_pipeline_report()`**
+
+This function returns the data from one specific pipeline that you create
+on your CRM. For this you will need to obtain the pipeline id that you want
+to work with from R.
+
+The variables to obtain with this function are:
+
+```
+ [1] "result_contact_id"                           
+ [2] "result_user_id"                              
+ [3] "result_company_id"                           
+ [4] "result_background_info"                      
+ [5] "result_birthday"                             
+ [6] "result_is_company"                           
+ [7] "result_company_name"                         
+ [8] "result_industry"                             
+ [9] "result_num_employees"                        
+[10] "result_creation_date"                        
+[11] "result_edited_date"                          
+[12] "result_original_google_id"                   
+[13] "result_employer_name"                        
+[14] "result_company_employees"                    
+[15] "result_pipeline_id"                          
+[16] "result_status_id"                            
+[17] "result_priority"                             
+[18] "result_last_note"                            
+[19] "result_start_date"                           
+[20] "result_last_update"                          
+[21] "result_num_updates"                          
+[22] "result_start_status_id"                      
+[23] "result_last_updated_by"                      
+[24] "result_sort_order"                           
+[25] "result_show_in_reports"                      
+[26] "result_pipeline_item_id"                     
+[27] "result_status_name"                          
+[28] "success"                                     
+[29] "result_custom_fields_priority"               
+[30] "result_custom_fields_descripcion_oportunidad"
+[31] "result_custom_fields_valor"
+```
+
+# Obtaining credentials:
 In order to make the package works, you would need to create an .Renviron
 file inside your working directory that should contain environment variables
 as your api token, user code and pipelineID
