@@ -1,4 +1,4 @@
 # helper data
 contact_information <- system.file("data",
-                                     "contact_information.rds",
+                                     "prueba_get_contact_information.json",
                                      package = "lacrmr")

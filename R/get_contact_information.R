@@ -31,6 +31,8 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
       contenido <- jsonlite::fromJSON(contenido,
                                       simplifyVector = TRUE)
 
+      jsonlite::toJSON(contenido, pretty = TRUE)
+
       # Sobre este segmento se corre prueba manteniendo igualdad en función
       # creada para este fin
       for (i in 1:length(contenido$Contact)){
@@ -65,7 +67,8 @@ get_test_contact_information <- function(test_data){
   for (i in 1:length(contenido$Contact)){
     # print(contenido[["Contact"]][[i]])
     contenido$Contact[i][(is.null(contenido$Contact[[i]]) == TRUE)] <- NA
-    contenido$Contact[i][(sjmisc::is_empty(contenido$Contact[[i]]) == TRUE)] <- NA
+    contenido$Contact[i][(
+      sjmisc::is_empty(contenido$Contact[[i]]) == TRUE)] <- NA
     contenido$Contact[i][(contenido$Contact[[i]] == "")] <- NA
   }
 
