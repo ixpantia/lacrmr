@@ -10,6 +10,8 @@ get_pipeline_report(user_code, api_token, pipelineid)
 \item{user_code}{The user code to identify your account}
 
 \item{api_token}{The api token to connect to your account}
+
+\item{pipelineid}{The id of the pipeline you want to get the report from}
 }
 \description{
 Return your pipeline report information from Less annoying CRM.
