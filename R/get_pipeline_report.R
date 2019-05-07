@@ -1,4 +1,4 @@
-#' @import dplyr
+#' @import magrittr
 #'
 #' @title get_pipeline_report
 #'
@@ -86,6 +86,3 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
 
 }
 
-# api_token <- Sys.getenv("api_token")
-# user_code <- Sys.getenv("user_code")
-# pipelineid = Sys.getenv("pipelineid")

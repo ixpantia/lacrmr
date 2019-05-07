@@ -1,4 +1,4 @@
-#' @import dplyr
+#' @import magrittr
 #'
 #' @title get_contacts
 #'
@@ -101,5 +101,5 @@ get_contacts <- function(user_code, api_token, search_term = "") {
         return(contenido)
       }
     )
-
 }
+
