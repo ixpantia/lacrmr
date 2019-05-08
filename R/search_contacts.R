@@ -1,4 +1,4 @@
-#' @import dplyr
+#' @import magrittr
 #'
 #' @title search_contacts
 #'

@@ -2,6 +2,8 @@
 
 export(get_account_information)
 export(get_contact_information)
+export(get_contacts)
 export(get_pipeline_report)
 export(search_contacts)
 import(dplyr)
+import(magrittr)
