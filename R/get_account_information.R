@@ -1,4 +1,4 @@
-#' @import dplyr
+#' @import magrittr
 #'
 #' @title get_account_information
 #'
@@ -32,5 +32,5 @@ get_account_information <- function(user_code, api_token) {
         return(contenido)
       }
     )
-
 }
+

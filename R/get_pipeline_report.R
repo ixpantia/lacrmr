@@ -1,4 +1,4 @@
-#' @import dplyr
+#' @import magrittr
 #'
 #' @title get_pipeline_report
 #'
@@ -50,3 +50,4 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
     )
 
 }
+
