@@ -49,8 +49,6 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
 
 }
 
-#' @import dplyr
-#'
 #' @title get_test_contact_information
 #'
 #' @description Return the contact information to verify through test.
