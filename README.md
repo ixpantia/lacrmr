@@ -1,6 +1,8 @@
 # lacramr
 Connect to the Less Annoying CRM API. 
 
+<a href="url"><img src="img/lacrmR.png" align="right" width="30%"></a>
+
 # Description
 Get the information from your Less Annoying Customer Relationship Management API
 in a tidy data way. Useful for getting metrics, visualize your goals and 

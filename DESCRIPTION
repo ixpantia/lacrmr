@@ -19,4 +19,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-Repository:ixrepo
+Repository: ixprepo
+

@@ -1,0 +1,39 @@
+{
+  "Contact": {
+    "ContactId": ["3579854302230603596464302219127"],
+    "UserId": ["435944"],
+    "CompanyId": {},
+    "Email": [],
+    "Phone": [],
+    "Website": [
+      {
+        "Text": "www.ejemplo.com"
+      }
+    ],
+    "Address": [
+      {
+        "Street": "direccion de ejemplo",
+        "City": "Pozos, Santa Ana",
+        "Country": "Costa Rica",
+        "Type": "Work",
+        "TypeId": "35729385263333125683417950323"
+      }
+    ],
+    "BackgroundInfo": ["ixpantia agrega valor a sus proyectos de datos a través de nuestros servicios personalizados con un equipo empático y altamente calificado. Potenciamos las capacidades de su equipo en ciencia de datos mediante nuestro acompañamiento desde la concepción de sus proyectos hasta su puesta en marcha. De ser necesario, ayudamos a alinear sus iniciativas de datos con su estrategia de negocio, así como a priorizar sus esfuerzos de datos. Estamos certificados para llevar sus productos de datos a producción localmente o en la nube. Nuestro objetivo final es tener clientes plenamente satisfechos que son cada vez más autosuficientes en sus iniciativas de datos."],
+    "Birthday": [""],
+    "IsCompany": ["1"],
+    "CompanyName": ["ejemplo"],
+    "Industry": ["Finance"],
+    "NumEmployees": [""],
+    "CreationDate": ["2019-03-13 15:58:44"],
+    "EditedDate": ["2019-05-03 09:37:16"],
+    "OriginalGoogleId": {},
+    "CustomFields": {
+      "Nr. Cientificos de Datos": [""],
+      "Rol en Decision (Decision Maker / Advisor)": [""],
+      "Nr. Cedula (Jur/Fis)": [""]
+    },
+    "ContactCustomFields": [false]
+  },
+  "Success": [true]
+}
