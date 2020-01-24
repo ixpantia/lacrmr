@@ -13,11 +13,12 @@ your goals and communicate with your data science team.
 
 ## Installation
 
-You can install the released version of lacrmr from
-[CRAN](https://CRAN.R-project.org) with:
+Rigth now we have just the development version. You can install lacrmr
+from github:
 
 ``` r
-install.packages("lacrmr")
+#install.packages("devtools")
+devtools::install_github("ixpantia/lacrmr")
 ```
 
 ## Example
