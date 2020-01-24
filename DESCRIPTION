@@ -1,6 +1,6 @@
 Package: lacrmr
 Title: Connect to the Less Annoying CRM API
-Version: 0.0.4
+Version: 0.1.0
 Authors@R: c(
   person(family="ixpantia, SRL", role = "cph", email = "hola@ixpantia.com"),
   person("Frans", "van Dunné", role="aut", email="frans@ixpantia.com"),
