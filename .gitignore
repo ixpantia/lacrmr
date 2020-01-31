@@ -26,6 +26,8 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+# Others docs within the project
 inst/doc
 doc
 Meta
+prueba_conexion.R
