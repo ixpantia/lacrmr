@@ -28,26 +28,31 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
           APIToken = api_token,
           Function = 'GetPipelineReport',
           Parameters = paste0('{"PipelineId":','"', pipelineid, '"', '}')
-        )
-        )
+        ))
+      })
 
         contenido <- httr::content(r, "text")
         contenido <- jsonlite::fromJSON(contenido,
                                         simplifyVector = TRUE)
+
+        if (contenido$Error == "Invalid user credentials. UserCode and APIToken don't match") {
+          stop("Invalid user credentials. Please check your user code or your api token")
+        }
+
         contenido <- as.data.frame(contenido)
         contenido <- jsonlite::flatten(contenido)
 
 
-        # Limpiar nombres del data frame
+        # Clean data frame variable names.
         contenido <- janitor::clean_names(contenido)
 
         contenido <- contenido %>%
-          select(-result_email, -result_phone, -result_address,
+          dplyr::select(-result_email, -result_phone, -result_address,
                  -result_website, -result_contact_custom_fields)
 
         return(contenido)
-      }
-    )
+      # }
+    # )
 
 }
 
