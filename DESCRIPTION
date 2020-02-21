@@ -24,4 +24,5 @@ Imports:
     dplyr,
     httr,
     jsonlite,
-    janitor
+    janitor,
+    sjmisc
