@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # lacrmr <a href="url"><img src="img/lacrmR.png" align="right" width="30%"></a>
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
 <!-- badges: end -->
 
 Get the information from your Less Annoying Customer Relationship Management API in a tidy data way. Useful for getting metrics, visualize your goals and communicate with your data science team.
@@ -44,6 +45,10 @@ account.
 searching for.
 - **search_contact** = If you want to make sure a contact exists on your
 CRM, this function will return an statement confirming the contact.
+
+## Credentials:
+
+At first you will need to obtain your user code and API
 
 ```{r, eval = FALSE}
 library(lacrmr)

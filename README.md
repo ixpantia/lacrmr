@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
 <!-- badges: end -->
 
 Get the information from your Less Annoying Customer Relationship
@@ -37,7 +39,9 @@ This package provides you with 4 functions. These are and will return:
     your CRM, this function will return an statement confirming the
     contact.
 
-<!-- end list -->
+## Credentials:
+
+At first you will need to obtain your user code and API
 
 ``` r
 library(lacrmr)

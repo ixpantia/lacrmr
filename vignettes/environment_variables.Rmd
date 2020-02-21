@@ -24,6 +24,28 @@ library(lacrmr)
 lacrmr is a package that allows you to connect with your [Less Annoying CRM](https://www.lessannoyingcrm.com/) account and obtain the data of your
 customers and contacts.
 
+
+## Using lacrmr:
+
+The first step is to look for the credentials in order to connect to your
+lacrm. When you are logged into your account, go to `settings` > `Programmer API`
+
+Here you will need to create an API Token. When you go through this process
+you will obtain two pieces of information:
+ 
+ - **User code**
+ - **API token**
+
+Please make sure to save this credentials in a secure place. Otherwise anyone
+with this credential will be able to check your information through an API.
+
+Then if you go down on the page, you will see other pieces of information as
+**User ID'S**, **Pipeline ID** and **Status ID**. This info will be useful in 
+order to make use of the functions in this package.
+
+
+
+
 # What information can we obtain with lacrmr?
 
 The lacrmr package have four functions:
