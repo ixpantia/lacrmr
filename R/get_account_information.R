@@ -25,15 +25,24 @@ get_account_information <- function(user_code, api_token) {
           UserCode = user_code,
           APIToken = api_token,
           Function = 'GetUserInfo'
-        )
-        )
+        ))
+      })
+
+
 
         contenido <- httr::content(r, "text")
         contenido <- jsonlite::fromJSON(contenido)
+
+        if (length(contenido$Error) == 1) {
+          if (str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
+            stop("Invalid user credentials. Please check your user code or your api token")
+          }
+        }
+
         contenido <- as.data.frame(contenido)
 
         return(contenido)
-      }
-    )
+      # }
+    # )
 }
 
