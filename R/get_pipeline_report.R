@@ -35,13 +35,21 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
         contenido <- jsonlite::fromJSON(contenido,
                                         simplifyVector = TRUE)
 
-        if (contenido$Error == "Invalid user credentials. UserCode and APIToken don't match") {
-          stop("Invalid user credentials. Please check your user code or your api token")
+        if (length(contenido$Error) == 1) {
+          if (str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
+            stop("Invalid user credentials. Please check your user code or your api token")
+          }
         }
 
         contenido <- as.data.frame(contenido)
         contenido <- jsonlite::flatten(contenido)
 
+        if (length(contenido$Error) == 1) {
+          if (str_detect(contenido$Error, "You don't have permission to view PipelineId") ==
+              TRUE) {
+            stop("Invalid pipelineid. Please check your pipelineid")
+          }
+        }
 
         # Clean data frame variable names.
         contenido <- janitor::clean_names(contenido)
