@@ -4,6 +4,9 @@
 #'
 #' @description Return your user account information from Less annoying CRM
 #'
+#' @details For using this function you will need to get your credentials from
+#' your Less Annoying CRM. Make sure to have your user code and your api_token.
+#'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
 #'
