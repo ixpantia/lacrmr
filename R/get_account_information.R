@@ -34,7 +34,7 @@ get_account_information <- function(user_code, api_token) {
         contenido <- jsonlite::fromJSON(contenido)
 
         if (length(contenido$Error) == 1) {
-          if (str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
+          if (stringr::str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
             stop("Invalid user credentials. Please check your user code or your api token")
           }
         }
