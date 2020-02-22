@@ -1,0 +1,17 @@
+context("credentials")
+
+testthat::test_that("Account information error with invalid credentials", {
+  codigo_usuario <- "6A6E88"
+  token_api <- "7HTQ9XM8VXPDG0XV0KMVFBHV7CCB"
+
+  expect_error(get_account_information(user_code = codigo_usuario,
+                                       api_token = token_api))
+})
+
+
+
+
+
+
+
+

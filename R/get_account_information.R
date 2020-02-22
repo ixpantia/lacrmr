@@ -35,14 +35,13 @@ get_account_information <- function(user_code, api_token) {
 
         if (length(contenido$Error) == 1) {
           if (stringr::str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
-            stop("Invalid user credentials. Please check your user code or your api token")
+            stop("Invalid user credentials. Please check your user code or your api token",
+                 call. = FALSE)
           }
         }
 
         contenido <- as.data.frame(contenido)
 
         return(contenido)
-      # }
-    # )
 }
 

@@ -25,4 +25,5 @@ Imports:
     httr,
     jsonlite,
     janitor,
-    sjmisc
+    sjmisc,
+    httptest
