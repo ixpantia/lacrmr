@@ -43,7 +43,7 @@ the data correspondant to the pipeline that you need.
 account. 
 - **get_contact_information** = Information related to the contact you are
 searching for.
-- **search_contact** = If you want to make sure a contact exists on your
+- **search_contacts** = If you want to make sure a contact exists on your
 CRM, this function will return an statement confirming the contact.
 
 ## Credentials:

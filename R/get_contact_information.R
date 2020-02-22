@@ -51,29 +51,3 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
 
 }
 
-#' @title get_test_contact_information
-#'
-#' @description Return the contact information to verify through test.
-#'
-#' @param user_code
-#'
-get_test_contact_information <- function(test_data){
-  contenido <- test_data
-
-  # Segmento copia fiel de función anterior para correr prueba
-  # sin tener que depender de conexion a API
-  for (i in 1:length(contenido$Contact)){
-    # print(contenido[["Contact"]][[i]])
-    contenido$Contact[i][(is.null(contenido$Contact[[i]]) == TRUE)] <- NA
-    contenido$Contact[i][(
-      sjmisc::is_empty(contenido$Contact[[i]]) == TRUE)] <- NA
-    contenido$Contact[i][(contenido$Contact[[i]] == "")] <- NA
-  }
-
-  contenido <- as.data.frame(contenido) %>%
-    dplyr::select(-Success) %>%
-    janitor::clean_names()
-
-  return(contenido)
-}
-

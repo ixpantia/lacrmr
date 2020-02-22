@@ -35,7 +35,7 @@ This package provides you with 4 functions. These are and will return:
     of your account.
   - **get\_contact\_information** = Information related to the contact
     you are searching for.
-  - **search\_contact** = If you want to make sure a contact exists on
+  - **search\_contacts** = If you want to make sure a contact exists on
     your CRM, this function will return an statement confirming the
     contact.
 
