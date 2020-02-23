@@ -57,11 +57,11 @@ test_that("pipeline report is succesful with valid credentials", {
   pipeline_general <- get_pipeline_report(user_code = codigo_usuario,
                                                   api_token = token_api,
                                                   pipelineid = pipelineid)
-
-
-
 })
 
+user_code  <- "88518"
+api_token <- "44HK8TM1ZTFMTDTNYZ1M215DPH15D0M7310SX31F97G3P2SC3F"
+pipelineid <- "3641868001717448079753414412494"
 
 
 

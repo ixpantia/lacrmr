@@ -3,20 +3,24 @@
 #' @NoRd
 get_request <- function(user_code, api_token, api_function, ...) {
 
-  if (api_function == "PipelineId") {
-    pipelineid <-  ...
+  item <- paste0(...)
+
+  if (api_function == "GetPipelineReport") {
+    pipelineid <-  item
   } else if (api_function == "SearchContacts") {
-    search_term <- ...
+    search_term <- item
   } else if (api_function == "ContactId") {
-    contact_id <- ...
+    contact_id <- item
   }
+
+  print(pipelineid)
 
   r <- httr::GET("https://api.lessannoyingcrm.com",
                  query = list(
                   UserCode = user_code,
                   APIToken = api_token,
                   Function = api_function,
-                  Parameters = if (api_function == "PipelineId") {
+                  Parameters =  if (api_function == "GetPipelineReport") {
                     paste0('{"PipelineId":','"', pipelineid, '"', '}')
                   } else if (api_function == 'SearchContacts') {
                     paste0('{"SearchTerms":','"', search_term, '"', '}')
