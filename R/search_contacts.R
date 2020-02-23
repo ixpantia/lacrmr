@@ -1,6 +1,6 @@
 #' @import magrittr
 #'
-#' @title get_contacts
+#' @title search_contacts
 #'
 #' @description Return the contacts information from Less annoying CRM.
 #'
@@ -10,7 +10,7 @@
 #' to the API. If you  want to search for group enter "Group:GROUP_NAME"
 #'
 #' @export
-get_contacts <- function(user_code, api_token, search_term = "") {
+search_contacts <- function(user_code, api_token, search_term = "") {
   if (missing(user_code)) {
     warning("Please add a valid user code")
   } else if (missing(api_token)) {
@@ -18,9 +18,15 @@ get_contacts <- function(user_code, api_token, search_term = "") {
   } else
     tryCatch(
       {
-        r <- get_request(user_code = user_code,
-                         api_token = api_token,
-                         api_function = 'SearchContacts')
+        lacrm_url <- "https://api.lessannoyingcrm.com"
+
+        r <- httr::GET(lacrm_url, query = list(
+          UserCode = user_code,
+          APIToken = api_token,
+          Function = 'SearchContacts',
+          Parameters = paste0('{"SearchTerms":','"', search_term, '"', '}')
+        )
+        )
 
         contenido <- httr::content(r, "text")
         contenido <- jsonlite::fromJSON(contenido)
