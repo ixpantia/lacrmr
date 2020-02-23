@@ -17,15 +17,13 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
     warning("Please add a valid API token")
   } else
     tryCatch({
-      lacrm_url <- "https://api.lessannoyingcrm.com"
 
-      r <- httr::GET(lacrm_url, query = list(
-        UserCode = user_code,
-        APIToken = api_token,
-        Function = 'GetContact',
-        Parameters = paste0('{"ContactId":','"', contact_id, '"', '}')
-      )
-      )
+      r <- get_request(user_code = user_code,
+                       api_token = api_token,
+                       api_function = 'GetContact',
+                       ... = contact_id)
+    })
+
 
       contenido <- httr::content(r, "text")
       contenido <- jsonlite::fromJSON(contenido,
@@ -47,7 +45,6 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
         janitor::clean_names()
 
       return(contenido)
-    })
 
 }
 

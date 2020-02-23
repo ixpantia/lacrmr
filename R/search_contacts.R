@@ -18,15 +18,11 @@ search_contacts <- function(user_code, api_token, search_term = "") {
   } else
     tryCatch(
       {
-        lacrm_url <- "https://api.lessannoyingcrm.com"
-
-        r <- httr::GET(lacrm_url, query = list(
-          UserCode = user_code,
-          APIToken = api_token,
-          Function = 'SearchContacts',
-          Parameters = paste0('{"SearchTerms":','"', search_term, '"', '}')
-        )
-        )
+        r <- get_request(user_code = user_code,
+                         api_token = api_token,
+                         api_function = 'SearchContacts',
+                         ... = search_term)
+      })
 
         contenido <- httr::content(r, "text")
         contenido <- jsonlite::fromJSON(contenido)
@@ -99,7 +95,6 @@ search_contacts <- function(user_code, api_token, search_term = "") {
           select(-result_email, -result_phone, -result_website, -result_address,
                  -result_contact_custom_fields, -result_custom_fields)
         return(contenido)
-      }
-    )
+
 }
 
