@@ -15,6 +15,5 @@ search_contacts(user_code, api_token, search_term = "")
 to the API. If you  want to search for group enter "Group:GROUP_NAME"}
 }
 \description{
-Return TRUE or FALSE if the contacts information exist on
-Less annoying CRM.
+Return the contacts information from Less annoying CRM.
 }

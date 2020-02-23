@@ -4,7 +4,7 @@
 \alias{get_request}
 \title{GET call to lacrm API}
 \usage{
-get_request(user_code, api_token, api_function)
+get_request(user_code, api_token, api_function, ...)
 }
 \arguments{
 \item{x}{an integer}
