@@ -24,7 +24,8 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
       {
         r <- get_request(user_code = user_code,
                          api_token = api_token,
-                         api_function = "GetPipelineReport")
+                         api_function = "GetPipelineReport",
+                         ... = pipelineid)
       })
 
         # Parse json
