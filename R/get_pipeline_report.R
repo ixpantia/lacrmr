@@ -47,6 +47,7 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
           }
         }
 
+        # json as data frame
         contenido <- as.data.frame(contenido)
         contenido <- jsonlite::flatten(contenido)
 
