@@ -15,6 +15,8 @@ get_pipeline_report(user_code, api_token, pipelineid)
 }
 \description{
 Return your pipeline report information from Less annoying CRM.
+}
+\details{
 For this you will need to know the pipelineId, StatusId, and CustomFieldId
 You can get this PipelineId's at https://www.lessannoyingcrm.com/app/Settings/Api'
 }

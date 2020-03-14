@@ -3,7 +3,8 @@
 #' @title get_pipeline_report
 #'
 #' @description Return your pipeline report information from Less annoying CRM.
-#' For this you will need to know the pipelineId, StatusId, and CustomFieldId
+#'
+#' @details For this you will need to know the pipelineId, StatusId, and CustomFieldId
 #' You can get this PipelineId's at https://www.lessannoyingcrm.com/app/Settings/Api'
 #'
 #' @param user_code The user code to identify your account
@@ -21,33 +22,41 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
   } else
     tryCatch(
       {
-        lacrm_url <- "https://api.lessannoyingcrm.com"
+        r <- get_request(user_code = user_code,
+                         api_token = api_token,
+                         api_function = "GetPipelineReport",
+                         ... = pipelineid)
+      })
 
-        r <- httr::GET(lacrm_url, query = list(
-          UserCode = user_code,
-          APIToken = api_token,
-          Function = 'GetPipelineReport',
-          Parameters = paste0('{"PipelineId":','"', pipelineid, '"', '}')
-        )
-        )
+        # Parse json
+        contenido <- jsonlite::fromJSON(httr::content(r, "text"), simplifyVector = TRUE)
 
-        contenido <- httr::content(r, "text")
-        contenido <- jsonlite::fromJSON(contenido,
-                                        simplifyVector = TRUE)
+        if (length(contenido$Error) == 1) {
+          if (stringr::str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
+            stop("Invalid user credentials. Please check your user code or your api token",
+                 call. = FALSE)
+          }
+        }
+
         contenido <- as.data.frame(contenido)
         contenido <- jsonlite::flatten(contenido)
 
+        if (length(contenido$Error) == 1) {
+          if (stringr::str_detect(contenido$Error, "You don't have permission to view PipelineId") ==
+              TRUE) {
+            stop("Invalid pipelineid. Please check your pipelineid",
+                 call. = FALSE)
+          }
+        }
 
-        # Limpiar nombres del data frame
+        # Clean data frame variable names.
         contenido <- janitor::clean_names(contenido)
 
+        # Select variables of interest
         contenido <- contenido %>%
-          select(-result_email, -result_phone, -result_address,
+          dplyr::select(-result_email, -result_phone, -result_address,
                  -result_website, -result_contact_custom_fields)
 
         return(contenido)
-      }
-    )
-
 }
 

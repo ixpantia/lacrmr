@@ -14,3 +14,7 @@ get_account_information(user_code, api_token)
 \description{
 Return your user account information from Less annoying CRM
 }
+\details{
+For using this function you will need to get your credentials from
+your Less Annoying CRM. Make sure to have your user code and your api_token.
+}

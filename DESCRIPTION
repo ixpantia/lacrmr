@@ -10,7 +10,7 @@ Description: Connect to the Less Annoying CRM API to get your data clean and tid
 License: GPL + file LICENCE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Depends:
     R (>= 3.6),
     magrittr
@@ -20,4 +20,10 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 Repository: ixprepo
-
+Imports: 
+    dplyr,
+    httr,
+    jsonlite,
+    janitor,
+    sjmisc,
+    httptest

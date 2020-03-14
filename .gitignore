@@ -30,4 +30,5 @@ vignettes/*.pdf
 inst/doc
 doc
 Meta
+# test file
 prueba_conexion.R
