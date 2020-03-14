@@ -1,4 +1,6 @@
 #' @import magrittr
+NULL
+
 #'
 #' @title get_pipeline_report
 #'
@@ -34,6 +36,13 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
         if (length(contenido$Error) == 1) {
           if (stringr::str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
             stop("Invalid user credentials. Please check your user code or your api token",
+                 call. = FALSE)
+          }
+        }
+
+        if (length(contenido$Error) == 1) {
+          if (stringr::str_detect(contenido$Error, "Your account is not active") == TRUE) {
+            stop("Your account is not active. Please contact lacrm",
                  call. = FALSE)
           }
         }

@@ -13,8 +13,6 @@ get_request <- function(user_code, api_token, api_function, ...) {
     contact_id <- item
   }
 
-  print(pipelineid)
-
   r <- httr::GET("https://api.lessannoyingcrm.com",
                  query = list(
                   UserCode = user_code,
