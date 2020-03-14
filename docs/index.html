@@ -71,19 +71,19 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="lacrmr-" class="section level1">
+<div id="lacrmr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#lacrmr-" class="anchor"></a>lacrmr <a href="url"><img src="img/lacrmR.png" align="right" width="30%"></a>
+<a href="#lacrmr" class="anchor"></a>lacrmr <a href="url"><img src="img/lacrmR.png" align="right" width="30%"></a>
 </h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
+
 <p>Get the information from your Less Annoying Customer Relationship Management API in a tidy data way. Useful for getting metrics, visualize your goals and communicate with your data science team.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Rigth now we have just the development version. You can install lacrmr from github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">#install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"ixpantia/lacrmr"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">#install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"ixpantia/lacrmr"</span>)</a></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
@@ -101,14 +101,19 @@
 <li>
 <strong>get_contact_information</strong> = Information related to the contact you are searching for.</li>
 <li>
-<strong>search_contact</strong> = If you want to make sure a contact exists on your CRM, this function will return an statement confirming the contact.</li>
+<strong>search_contacts</strong> = If you want to make sure a contact exists on your CRM, this function will return an statement confirming the contact.</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(lacrmr)</a>
-<a class="sourceLine" id="cb2-2" title="2"></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co">## Obtain the report from a specific pipeline</span></a>
-<a class="sourceLine" id="cb2-4" title="4">sales &lt;-<span class="st"> </span><span class="kw">get_pipeline_report</span>(<span class="dt">user_code =</span> <span class="st">"12454"</span>, </a>
-<a class="sourceLine" id="cb2-5" title="5">                             <span class="dt">api_token =</span> <span class="st">"25632"</span>,</a>
-<a class="sourceLine" id="cb2-6" title="6">                             <span class="dt">pipelineid =</span> <span class="st">"458742fgg2544"</span>)</a></code></pre></div>
+</div>
+<div id="credentials" class="section level2">
+<h2 class="hasAnchor">
+<a href="#credentials" class="anchor"></a>Credentials:</h2>
+<p>At first you will need to obtain your user code and API</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(lacrmr)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">## Obtain the report from a specific pipeline</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">sales &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_pipeline_report.html">get_pipeline_report</a></span>(<span class="dt">user_code =</span> <span class="st">"12454"</span>, </a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">                             <span class="dt">api_token =</span> <span class="st">"25632"</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">                             <span class="dt">pipelineid =</span> <span class="st">"458742fgg2544"</span>)</a></code></pre></div>
 </div>
 </div>
   </div>
@@ -130,7 +135,13 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=lacrmr"><img src="https://www.r-pkg.org/badges/version/lacrmr" alt="CRAN status"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
