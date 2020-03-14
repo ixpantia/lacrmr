@@ -1,13 +1,24 @@
 Package: lacrmr
 Title: Connect to the Less Annoying CRM API
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: c(
-  person(family="ixpantia, SRL", role = "cph", email = "hola@ixpantia.com"),
-  person("Frans", "van Dunné", role="aut", email="frans@ixpantia.com"),
-  person("Ronny", "Hernández Mora", role=c("cre", "aut"), email="ronny@ixpantia.com")
-  )
+  person(given = "ixpantia, 
+         family = SRL",
+         role = "cph",
+         email = "hola@ixpantia.com"),
+  person(given = "Ronny",
+         family = "Hernández Mora", 
+         role = c("cre", "aut"),
+         email = "ronny@ixpantia.com",
+         comment = c(ORCID = "0000-0001-6225-7096")),
+  person(given = "Frans", 
+         family = "van Dunné",
+         role = "aut", 
+         email="frans@ixpantia.com"))
 Description: Connect to the Less Annoying CRM API to get your data clean and tidy.
 License: GPL + file LICENCE
+URL: https://ixpantia.github.io/lacrmr/
+BugReports: https://github.com/ixpantia/lacrmr/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
