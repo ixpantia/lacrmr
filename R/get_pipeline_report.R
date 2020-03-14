@@ -1,4 +1,6 @@
 #' @import magrittr
+NULL
+
 #'
 #' @title get_pipeline_report
 #'
@@ -38,6 +40,14 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
           }
         }
 
+        if (length(contenido$Error) == 1) {
+          if (stringr::str_detect(contenido$Error, "Your account is not active") == TRUE) {
+            stop("Your account is not active. Please contact lacrm",
+                 call. = FALSE)
+          }
+        }
+
+        # json as data frame
         contenido <- as.data.frame(contenido)
         contenido <- jsonlite::flatten(contenido)
 
