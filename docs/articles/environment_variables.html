@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lacrmr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -82,22 +82,34 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(lacrmr)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co">#&gt; Loading required package: magrittr</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(lacrmr)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; Loading required package: magrittr</span></a></code></pre></div>
 <div id="why-using-lacrmr" class="section level1">
 <h1 class="hasAnchor">
 <a href="#why-using-lacrmr" class="anchor"></a>Why using lacrmr?</h1>
 <p>lacrmr is a package that allows you to connect with your <a href="https://www.lessannoyingcrm.com/">Less Annoying CRM</a> account and obtain the data of your customers and contacts.</p>
+<div id="using-lacrmr" class="section level2">
+<h2 class="hasAnchor">
+<a href="#using-lacrmr" class="anchor"></a>Using lacrmr:</h2>
+<p>The first step is to look for the credentials in order to connect to your lacrm. When you are logged into your account, go to <code>settings</code> &gt; <code>Programmer API</code></p>
+<p>Here you will need to create an API Token. When you go through this process you will obtain two pieces of information:</p>
+<ul>
+<li><strong>User code</strong></li>
+<li><strong>API token</strong></li>
+</ul>
+<p>Please make sure to save this credentials in a secure place. Otherwise anyone with this credential will be able to check your information through an API.</p>
+<p>Then if you go down on the page, you will see other pieces of information as <strong>User ID’S</strong>, <strong>Pipeline ID</strong> and <strong>Status ID</strong>. This info will be useful in order to make use of the functions in this package.</p>
+</div>
 </div>
 <div id="what-information-can-we-obtain-with-lacrmr" class="section level1">
 <h1 class="hasAnchor">
 <a href="#what-information-can-we-obtain-with-lacrmr" class="anchor"></a>What information can we obtain with lacrmr?</h1>
 <p>The lacrmr package have four functions:</p>
 <ul>
-<li><code>get_pipeline_report()</code></li>
-<li><code>search_contacts()</code></li>
-<li><code>get_contact_information()</code></li>
-<li><code>get_account_information()</code></li>
+<li><code><a href="../reference/get_pipeline_report.html">get_pipeline_report()</a></code></li>
+<li><code><a href="../reference/search_contacts.html">search_contacts()</a></code></li>
+<li><code><a href="../reference/get_contact_information.html">get_contact_information()</a></code></li>
+<li><code><a href="../reference/get_account_information.html">get_account_information()</a></code></li>
 </ul>
 <div id="get_pipeline_report" class="section level2">
 <h2 class="hasAnchor">
@@ -187,7 +199,11 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#why-using-lacrmr">Why using lacrmr?</a></li>
+<li>
+<a href="#why-using-lacrmr">Why using lacrmr?</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#using-lacrmr">Using lacrmr:</a></li>
+      </ul>
+</li>
       <li>
 <a href="#what-information-can-we-obtain-with-lacrmr">What information can we obtain with lacrmr?</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#get_pipeline_report"><strong><code>get_pipeline_report()</code></strong></a></li>
@@ -206,7 +222,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Frans van Dunné, Ronny Hernández Mora.</p>
+  <p>Developed by Ronny Hernández Mora, Frans van Dunné.</p>
 </div>
 
 <div class="pkgdown">

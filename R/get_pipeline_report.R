@@ -21,7 +21,8 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
     warning("Please add a valid API token")
   } else if (missing(pipelineid)) {
     warning("Please add a valid pipeline ID")
-  } else
+  } else {
+
     tryCatch(
       {
         r <- get_request(user_code = user_code,
@@ -68,5 +69,6 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
                  -result_website, -result_contact_custom_fields)
 
         return(contenido)
+  }
 }
 
