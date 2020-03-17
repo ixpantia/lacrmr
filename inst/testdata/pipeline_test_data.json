@@ -1,0 +1,365 @@
+{
+  "Result": [
+    {
+      "ContactId": "3504190907603346673161578349030",
+      "UserId": "334595",
+      "CompanyId": null,
+      "Email": [],
+      "Phone": [],
+      "Website": [],
+      "Address": [],
+      "BackgroundInfo": "",
+      "Birthday": null,
+      "IsCompany": "1",
+      "CompanyName": "Mambi business",
+      "Industry": "",
+      "NumEmployees": "",
+      "CreationDate": "2018-02-26 21:02:38",
+      "EditedDate": "2019-12-30 16:15:21",
+      "OriginalGoogleId": null,
+      "EmployerName": null,
+      "CompanyEmployees": null,
+      "PipelineId": "3504965832666975645900460114637",
+      "StatusId": "3505895711602920573756100150990",
+      "Priority": "3",
+      "LastNote": "20191217 - mambi propone hablar sobre oportunidades de colaboracion en 2020.",
+      "StartDate": "2019-12-18 09:11:35",
+      "LastUpdate": "2019-12-18 09:12:05",
+      "NumUpdates": "2",
+      "StartStatusId": "3505895711602920573756100150990",
+      "LastUpdatedBy": "334595",
+      "SortOrder": "0",
+      "ShowInReports": "1",
+      "CustomOpportunityData_New": "{\"3572935727761412252438939067084\":\"3\",\"3504969611348760250767676358315\":\"Oportunidades de colaboracion\",\"3504969666483772444076313473306\":\"4000\"}",
+      "CustomContactData_New": "{\"3572935727567721439664988736576\":[],\"3572935727570027282674203291267\":[],\"3572935727574638968692630427963\":[],\"3572935727574638968692631182956\":[],\"3572935727565415596655775027416\":\"mambi\",\"3572935727570027282674204066781\":\"\",\"3572935727572333125683417631439\":\"\",\"3572935727574638968692629716535\":\"\"}",
+      "CustomFields": {
+        "Priority": "High Priority",
+        "Descripción oportunidad": "Oportunidades de colaboracion",
+        "Valor $": "4000"
+      },
+      "ContactCustomFields": [],
+      "PipelineItemId": "3635580925392583830103012125544",
+      "StatusName": "Identificado"
+    },
+    {
+      "ContactId": "3636023440612231588869155734587",
+      "UserId": "435944",
+      "CompanyId": null,
+      "Email": [],
+      "Phone": [],
+      "Website": [
+        {
+          "Text": "https:\/\/www.mambi.com\/"
+        }
+      ],
+      "Address": [],
+      "BackgroundInfo": null,
+      "Birthday": "",
+      "IsCompany": "1",
+      "CompanyName": "Mambi business",
+      "Industry": "Pets",
+      "NumEmployees": "",
+      "CreationDate": "2019-12-20 14:30:05",
+      "EditedDate": "2020-01-23 15:42:44",
+      "OriginalGoogleId": null,
+      "EmployerName": null,
+      "CompanyEmployees": null,
+      "PipelineId": "3504965832666975645900460114637",
+      "StatusId": "3504966008828769863808250939290",
+      "Priority": "2",
+      "LastNote": "Mambi nos contactó",
+      "StartDate": "2019-12-20 14:30:05",
+      "LastUpdate": "2020-01-23 15:42:44",
+      "NumUpdates": "4",
+      "StartStatusId": "3504966008828769863808250939290",
+      "LastUpdatedBy": "435944",
+      "SortOrder": "2",
+      "ShowInReports": "1",
+      "CustomOpportunityData_New": "{\"3572935727761412252438939067084\":\"2\",\"3504969611348760250767676358315\":\"Aprovechamiento de datos\",\"3504969666483772444076313473306\":\"\"}",
+      "CustomContactData_New": "{\"3572935727565415596655775027416\":\"MambiM\\u00e9xico\",\"3572935727567721439664988736576\":[],\"3572935727570027282674203291267\":[],\"3572935727574638968692630427963\":[],\"3572935727574638968692629716535\":null,\"3572935727570027282674204066781\":\"Pets\",\"3572935727572333125683417631439\":\"\",\"3572935727574638968692631182956\":[{\"Text\":\"https:\\\/\\\/www.mambi.com\\\/\"}],\"3572935727613838299849262732083\":\"\",\"3572935727613838299849263214779\":\"\",\"3572935727616144142858476623092\":\"\",\"3598600128099875898743822940254\":\"\"}",
+      "CustomFields": {
+        "Priority": "Medium Priority",
+        "Descripción oportunidad": "Aprovechamiento de datos",
+        "Valor $": ""
+      },
+      "ContactCustomFields": {
+        "Nr. Cientificos de Datos": "",
+        "Rol en Decision (Decision Maker \/ Advisor)": "",
+        "Nr. Cedula (Jur\/Fis)": "",
+        "Porcentaje IVA (CR)": ""
+      },
+      "PipelineItemId": "3636023440616843274887584741483",
+      "StatusName": "Contactado"
+    },
+    {
+      "ContactId": "3502345895413033298285951918524",
+      "UserId": "334595",
+      "CompanyId": null,
+      "Email": [],
+      "Phone": [],
+      "Website": [],
+      "Address": [],
+      "BackgroundInfo": "",
+      "Birthday": null,
+      "IsCompany": "1",
+      "CompanyName": "Escuela didáctica pragmática",
+      "Industry": "Education",
+      "NumEmployees": "",
+      "CreationDate": "2018-02-17 14:46:51",
+      "EditedDate": "2020-02-13 08:35:29",
+      "OriginalGoogleId": null,
+      "EmployerName": null,
+      "CompanyEmployees": null,
+      "PipelineId": "3504965832666975645900460114637",
+      "StatusId": "3504966008828769863808250939290",
+      "Priority": "2",
+      "LastNote": "",
+      "StartDate": "2019-03-11 17:22:15",
+      "LastUpdate": "2020-02-13 08:35:29",
+      "NumUpdates": "14",
+      "StartStatusId": "3504966008828769863808250939290",
+      "LastUpdatedBy": "435944",
+      "SortOrder": "2",
+      "ShowInReports": "1",
+      "CustomOpportunityData_New": "{\"3504969611348760250767676358315\":\"EDA con datos de educacion\",\"3504969666483772444076313473306\":\"8000\",\"3572935727761412252438939067084\":\"2\"}",
+      "CustomContactData_New": "{\"3572935727567721439664988736576\":[],\"3572935727570027282674203291267\":[],\"3572935727574638968692630427963\":[],\"3572935727574638968692631182956\":[],\"3572935727565415596655775027416\":\"Escuela didáctica pragmática\",\"3572935727570027282674204066781\":\"Education\",\"3572935727572333125683417631439\":\"\",\"3572935727574638968692629716535\":\"\"}",
+      "CustomFields": {
+        "Descripción oportunidad": "EDA con datos de escuelas",
+        "Valor $": "8000",
+        "Priority": "Medium Priority"
+      },
+      "ContactCustomFields": [],
+      "PipelineItemId": "3579467403547733074624070048743",
+      "StatusName": "Contactado"
+    },
+    {
+      "ContactId": "3652568564778397960334535126459",
+      "UserId": "435944",
+      "CompanyId": null,
+      "Email": [],
+      "Phone": [],
+      "Website": [
+        {
+          "Text": "https:\/\/banco.com"
+        }
+      ],
+      "Address": [],
+      "BackgroundInfo": null,
+      "Birthday": "",
+      "IsCompany": "1",
+      "CompanyName": "Banco",
+      "Industry": "Finanzas",
+      "NumEmployees": "",
+      "CreationDate": "2020-03-12 15:39:01",
+      "EditedDate": "2020-03-12 20:24:59",
+      "OriginalGoogleId": null,
+      "EmployerName": null,
+      "CompanyEmployees": null,
+      "PipelineId": "3504965832666975645900460114637",
+      "StatusId": "3504966008828769863808250939290",
+      "Priority": "2",
+      "LastNote": "Mengano nos pasó contacto. Mandamos nota en enero 2020 (sin respuesta) y de nuevo el J12\/3. Seg. L23\/3.",
+      "StartDate": "2020-03-12 15:59:23",
+      "LastUpdate": "2020-03-12 15:59:23",
+      "NumUpdates": "1",
+      "StartStatusId": "3504966008828769863808250939290",
+      "LastUpdatedBy": "435944",
+      "SortOrder": "2",
+      "ShowInReports": "1",
+      "CustomOpportunityData_New": "{\"3504969611348760250767676358315\":\"Explorar apoyo en ciencia de datos\",\"3504969666483772444076313473306\":\"\",\"3572935727761412252438939067084\":\"2\"}",
+      "CustomContactData_New": "{\"3572935727565415596655775027416\":\"Banco\",\"3572935727567721439664988736576\":[],\"3572935727570027282674203291267\":[],\"3572935727574638968692630427963\":[],\"3572935727613838299849262732083\":\"\",\"3572935727613838299849263214779\":\"\",\"3598600128099875898743822940254\":\"\",\"3572935727570027282674204066781\":\"Finanzas\",\"3572935727572333125683417631439\":\"\",\"3572935727574638968692631182956\":[{\"Text\":\"https:\\\/\\\/banco.com\"}],\"3572935727574638968692629716535\":null,\"3572935727616144142858476623092\":\"\"}",
+      "CustomFields": {
+        "Descripción oportunidad": "Explorar apoyo en ciencia de datos",
+        "Valor $": "",
+        "Priority": "Medium Priority"
+      },
+      "ContactCustomFields": {
+        "Nr. Cientificos de Datos": "",
+        "Rol en Decision (Decision Maker \/ Advisor)": "",
+        "Porcentaje IVA (CR)": "",
+        "Nr. Cedula (Jur\/Fis)": ""
+      },
+      "PipelineItemId": "3652571381847554903787360150729",
+      "StatusName": "Contactado"
+    },
+    {
+      "ContactId": "3617749234617440617391963220189",
+      "UserId": "435944",
+      "CompanyId": null,
+      "Email": [],
+      "Phone": [
+        {
+          "Type": "Work",
+          "Text": "+59597986602020",
+          "Clean": "59597986602020 ",
+          "TypeId": "3572935727567721439664988797686"
+        }
+      ],
+      "Website": [
+        {
+          "Text": "https:\/\/www.electronics.com.\/"
+        }
+      ],
+      "Address": [
+        {
+          "Street": "",
+          "City": "admisión",
+          "State": null,
+          "Country": "paguay",
+          "Zip": null,
+          "Type": "Work",
+          "TypeId": "3572935727572333125683417950323"
+        }
+      ],
+      "BackgroundInfo": null,
+      "Birthday": "",
+      "IsCompany": "1",
+      "CompanyName": "Electronics",
+      "Industry": "Retail Electronics",
+      "NumEmployees": "",
+      "CreationDate": "2019-09-19 21:03:52",
+      "EditedDate": "2020-03-11 20:25:18",
+      "OriginalGoogleId": null,
+      "EmployerName": null,
+      "CompanyEmployees": null,
+      "PipelineId": "3504965832666975645900460114637",
+      "StatusId": "3504966008828769863808250939290",
+      "Priority": "2",
+      "LastNote": "Tema no es prioridad y que podrían retomar asunto luego de su temporada alta",
+      "StartDate": "2019-09-27 16:48:41",
+      "LastUpdate": "2019-12-16 20:17:29",
+      "NumUpdates": "14",
+      "StartStatusId": "3504966008828769863808250939290",
+      "LastUpdatedBy": "435944",
+      "SortOrder": "2",
+      "ShowInReports": "1",
+      "CustomOpportunityData_New": "{\"3504969611348760250767676358315\":\"Apoyo con modelos\\u00e9dito\",\"3504969666483772444076313473306\":\"\",\"3572935727761412252438939067084\":\"2\"}",
+      "CustomContactData_New": "{\"3572935727565415596655775027416\":\"Electronics\",\"3572935727567721439664988736576\":[],\"3572935727570027282674203291267\":[{\"Type\":\"Work\",\"Text\":\"+595982602020\",\"Clean\":\"595982602020\",\"TypeId\":\"3572935727567721439664988797686\"}],\"3572935727570027282674204066781\":\"Retail Electronics\",\"3572935727572333125683417631439\":\"\",\"3572935727574638968692630427963\":[{\"Street\":\"\",\"City\":\"Asciu00f3n\",\"State\":null,\"Country\":\"Paguay\",\"Zip\":null,\"Type\":\"Work\",\"TypeId\":\"3572935727572333125683417950323\"}],\"3572935727574638968692629716535\":null,\"3572935727574638968692631182956\":[{\"Text\":\"https:\\\/\\\/www.electronics.com\\\/\"}]}",
+      "CustomFields": {
+        "Descripción oportunidad": "Apoyo con modelos de crédito",
+        "Valor $": "",
+        "Priority": "Medium Priority"
+      },
+      "ContactCustomFields": [],
+      "PipelineItemId": "3619307728716033277474514099771",
+      "StatusName": "Contactado"
+    },
+    {
+      "ContactId": "3636029914354101990665046925086",
+      "UserId": "435944",
+      "CompanyId": null,
+      "Email": [],
+      "Phone": [],
+      "Website": [
+        {
+          "Text": "https:\/\/www.seguros.com"
+        }
+      ],
+      "Address": [],
+      "BackgroundInfo": null,
+      "Birthday": "",
+      "IsCompany": "1",
+      "CompanyName": "Seguros",
+      "Industry": "Finance",
+      "NumEmployees": "",
+      "CreationDate": "2019-12-20 15:16:53",
+      "EditedDate": "2020-01-23 15:44:07",
+      "OriginalGoogleId": null,
+      "EmployerName": null,
+      "CompanyEmployees": null,
+      "PipelineId": "3504965832666975645900460114637",
+      "StatusId": "3504966008828769863808250939290",
+      "Priority": "2",
+      "LastNote": "temas de aprovechamiento de datos Seg. L3\/2.",
+      "StartDate": "2019-12-20 15:16:53",
+      "LastUpdate": "2020-01-23 15:44:07",
+      "NumUpdates": "3",
+      "StartStatusId": "3504966008828769863808250939290",
+      "LastUpdatedBy": "435944",
+      "SortOrder": "2",
+      "ShowInReports": "1",
+      "CustomOpportunityData_New": "{\"3572935727761412252438939067084\":\"2\",\"3504969611348760250767676358315\":\"Aprovechamiento de datos\",\"3504969666483772444076313473306\":\"\"}",
+      "CustomContactData_New": "{\"3572935727565415596655775027416\":\"Seguros\",\"3572935727567721439664988736576\":[],\"3572935727570027282674203291267\":[],\"3572935727574638968692630427963\":[],\"3572935727574638968692629716535\":null,\"3572935727570027282674204066781\":\"Finance\",\"3572935727572333125683417631439\":\"\",\"3572935727574638968692631182956\":[{\"Text\":\"https:\\\/\\\/www.seguros.com\"}],\"3572935727613838299849262732083\":\"\",\"3572935727613838299849263214779\":\"\",\"3572935727616144142858476623092\":\"\",\"3598600128099875898743822940254\":\"\"}",
+      "CustomFields": {
+        "Priority": "Medium Priority",
+        "Descripción oportunidad": "Aprovechamiento de datos",
+        "Valor $": ""
+      },
+      "ContactCustomFields": {
+        "Nr. Cientificos de Datos": "",
+        "Rol en Decision (Decision Maker \/ Advisor)": "",
+        "Nr. Cedula (Jur\/Fis)": "",
+        "Porcentaje IVA (CR)": ""
+      },
+      "PipelineItemId": "3636029914358713676683474307137",
+      "StatusName": "Contactado"
+    },    
+    {
+      "ContactId": "3590425743328830356401989380772",
+      "UserId": "435944",
+      "CompanyId": null,
+      "Email": [],
+      "Phone": [
+        {
+          "Type": "Work",
+          "Text": "+513 23456-9900",
+          "Clean": "513224569900",
+          "TypeId": "3572935727567721439664988797686"
+        }
+      ],
+      "Website": [
+        {
+          "Text": "http:\/\/www.operadores.org\/"
+        }
+      ],
+      "Address": [
+        {
+          "Street": "Las Margaritas, N° 239",
+          "City": "SS",
+          "State": null,
+          "Country": "es",
+          "Zip": null,
+          "Type": "Work",
+          "TypeId": "3572935727572333125683417950323"
+        }
+      ],
+      "BackgroundInfo": null,
+      "Birthday": "",
+      "IsCompany": "1",
+      "CompanyName": "Operadores",
+      "Industry": "Energía",
+      "NumEmployees": "",
+      "CreationDate": "2019-05-05 17:29:16",
+      "EditedDate": "2020-03-11 20:25:18",
+      "OriginalGoogleId": null,
+      "EmployerName": null,
+      "CompanyEmployees": null,
+      "PipelineId": "3504965832666975645900460114637",
+      "StatusId": "3504966175301411757000099318867",
+      "Priority": "3",
+      "LastNote": "capacitación está presupuestada para 2020.",
+      "StartDate": "2019-05-05 17:32:15",
+      "LastUpdate": "2020-03-11 09:14:28",
+      "NumUpdates": "22",
+      "StartStatusId": "3504966008828769863808250939290",
+      "LastUpdatedBy": "435944",
+      "SortOrder": "7",
+      "ShowInReports": "1",
+      "CustomOpportunityData_New": "{\"3504969611348760250767676358315\":\"Curso Intro a R\",\"3504969666483772444076313473306\":\"4500\",\"3572935727761412252438939067084\":\"3\"}",
+      "CustomContactData_New": "{\"3572935727613838299849262732083\":\"\",\"3572935727613838299849263214779\":\"\",\"3572935727616144142858476623092\":\"\",\"3572935727565415596655775027416\":\"Ente Operador Regional\",\"3572935727567721439664988736576\":[],\"3572935727570027282674203291267\":[{\"Type\":\"Work\",\"Text\":\"\",\"Clean\":\"513224569900\",\"TypeId\":\"3572935727567721439664988797686\"}],\"3572935727570027282674204066781\":\"Energ\\u00eda\",\"3572935727572333125683417631439\":\"\",\"3572935727574638968692630427963\":[{\"Street\":\"Las Margaritas, N\\u00b0 128\",\"City\":\"SS\",\"State\":null,\"Country\":\"es\",\"Zip\":null,\"Type\":\"Work\",\"TypeId\":\"3572935727572333125683417950323\"}],\"3572935727574638968692629716535\":null,\"3572935727574638968692631182956\":[{\"Text\":\"http:\\\/\\\/www.operadores.org\\\/\"}]}",
+      "CustomFields": {
+        "Descripción oportunidad": "Curso Intro a R",
+        "Valor $": "4500",
+        "Priority": "High Priority"
+      },
+      "ContactCustomFields": {
+        "Nr. Cientificos de Datos": "",
+        "Rol en Decision (Decision Maker \/ Advisor)": "",
+        "Nr. Cedula (Jur\/Fis)": ""
+      },
+      "PipelineItemId": "3590426155788804472510709503247",
+      "StatusName": "Contrato aprobado"
+    }
+  ],
+  "Success": true
+}

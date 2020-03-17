@@ -32,7 +32,8 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
       })
 
         # Parse json
-        contenido <- jsonlite::fromJSON(httr::content(r, "text"), simplifyVector = TRUE)
+        contenido <- jsonlite::fromJSON(httr::content(r, "text"),
+                                        simplifyVector = TRUE)
 
         if (length(contenido$Error) == 1) {
           if (stringr::str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
