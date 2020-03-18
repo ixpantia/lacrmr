@@ -53,9 +53,9 @@ devtools::install_github("ixpantia/lacrmr")
 
 ## Credentials:
 
-At first you will need to obtain your user code and API token from your Less Annoying
-CRM. Once you have your credentials, you will be able to use the functions
-and take your lacrm data into R!
+At first you will need to obtain your [user code and API token](https://www.lessannoyingcrm.com/app/Settings/Api)
+from your Less Annoying CRM. Once you have your credentials, you will be able
+to use the functions and take your lacrm data into R!
 
 If you need advice on how to do this and also what are the best practices to
 not leave your credentials in your code, check the package vignette!
