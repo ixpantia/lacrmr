@@ -15,9 +15,8 @@ testthat::test_that("Invalid credentials", {
 
   expect_warning(
     get_contact_information(user_code = "6A6E88",
-                            api_token = "96066",
                             contact_id = "h5jkfgns7"),
-    "Please add a valid pipeline ID"
+    "Please add a valid API token"
   )
 
   expect_warning(
