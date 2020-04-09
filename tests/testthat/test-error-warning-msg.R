@@ -20,9 +20,9 @@ testthat::test_that("Invalid credentials", {
   )
 
   expect_warning(
-    get_pipeline_report(user_code = "6A6E88",
-                        api_token = "96066"),
-    "Please add a valid pipeline ID"
+    search_contacts(user_code = "6A6E88",
+                    search_term = "ixpantia"),
+    "Please add a valid API token"
   )
 })
 

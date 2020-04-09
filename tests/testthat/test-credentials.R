@@ -20,7 +20,7 @@ testthat::test_that("Contact information error message with invalid credentials"
                                        contact_id = "Fulano"))
 })
 
-testthat::test_that("Contact information error message with invalid credentials", {
+testthat::test_that("Search contacts error message with invalid credentials", {
   expect_error(search_contacts(user_code = "6A6E88",
                                api_token = "TQ9XM",
                                search_term = "brenesii"))
