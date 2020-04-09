@@ -15,7 +15,9 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
     warning("Please add a valid user code")
   } else if (missing(api_token)) {
     warning("Please add a valid API token")
-  } else
+  } else {
+
+
     tryCatch({
 
       r <- get_request(user_code = user_code,
@@ -45,6 +47,7 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
         janitor::clean_names()
 
       return(contenido)
+  }
 
 }
 
