@@ -1,6 +1,6 @@
 #' GET call to lacrm API
 #' @param x an integer
-#' @NoRd
+#' @noRd
 get_request <- function(user_code, api_token, api_function, ...) {
 
   item <- paste0(...)
