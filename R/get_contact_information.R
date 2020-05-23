@@ -15,21 +15,29 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
     warning("Please add a valid user code")
   } else if (missing(api_token)) {
     warning("Please add a valid API token")
+  } else if (missing(contact_id)) {
+    warning("Please add a contact id")
   } else {
 
-
     tryCatch({
-
       r <- get_request(user_code = user_code,
                        api_token = api_token,
-                       api_function = 'GetContact',
+                       api_function = "GetContact",
                        ... = contact_id)
     })
 
+      # Parse json
 
-      contenido <- httr::content(r, "text")
-      contenido <- jsonlite::fromJSON(contenido,
-                                      simplifyVector = TRUE)
+      # Usamos datos ejemplo:
+
+    contenido <- system.file("testdata/prueba_get_contact_information.json",
+                                       package = "lacrmr")
+
+    # Parte de la funcion
+    contenido <- httr::content(r, "text")
+
+    contenido <- jsonlite::fromJSON(contenido,
+                                    simplifyVector = TRUE)
 
       jsonlite::toJSON(contenido, pretty = TRUE)
 
