@@ -8,27 +8,35 @@ Authors@R: c(
          email = "hola@ixpantia.com"),
   person(given = "Ronny",
          family = "Hernández Mora", 
-         role = c("cre", "aut"),
+         role = c("aut"),
          email = "ronny@ixpantia.com",
          comment = c(ORCID = "0000-0001-6225-7096")),
   person(given = "Frans", 
          family = "van Dunné",
-         role = "aut", 
-         email="frans@ixpantia.com"))
+         role = c("cre", "aut"), 
+         email = "frans@ixpantia.com",
+         comment = c(ORCID = "0000-0002-7853-2811")))
 Description: Connect to the Less Annoying CRM API to get your data clean and tidy.
-License: GPL + file LICENCE
+License: GPL-2 + file LICENCE
 URL: https://ixpantia.github.io/lacrmr/
 BugReports: https://github.com/ixpantia/lacrmr/issues
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Depends:
     R (>= 3.6),
-    magrittr
+    magrittr,
+    dplyr,
+    httr,
+    jsonlite,
+    janitor,
+    sjmisc
 Suggests: 
     testthat (>= 2.1.0),
     knitr,
-    rmarkdown
+    rmarkdown,
+    httptest,
+    mockery
 VignetteBuilder: knitr
 Repository: ixprepo
 Imports: 
@@ -36,5 +44,4 @@ Imports:
     httr,
     jsonlite,
     janitor,
-    sjmisc,
-    httptest
+    sjmisc
