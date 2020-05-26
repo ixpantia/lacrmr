@@ -1,5 +1,7 @@
-^lacramr\.Rproj$
+^lacrmr\.Rproj$
 ^\.Rproj\.user$
 ^doc$
+^docs$
 ^Meta$
 ^README\.Rmd$
+
