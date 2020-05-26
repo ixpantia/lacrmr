@@ -25,12 +25,7 @@ LazyData: true
 RoxygenNote: 7.1.0
 Depends:
     R (>= 3.6),
-    magrittr,
-    dplyr,
-    httr,
-    jsonlite,
-    janitor,
-    sjmisc
+    magrittr
 Suggests: 
     testthat (>= 2.1.0),
     knitr,
@@ -38,10 +33,10 @@ Suggests:
     httptest,
     mockery
 VignetteBuilder: knitr
-Repository: ixprepo
 Imports: 
     dplyr,
     httr,
     jsonlite,
     janitor,
-    sjmisc
+    sjmisc,
+    stringr
