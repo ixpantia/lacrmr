@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# lacrmr <a href="url"><img src="img/lacrmR.png" align="right" width="30%"></a>
+# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
 
 <!-- badges: start -->
 
@@ -69,8 +69,8 @@ sales <- get_pipeline_report(user_code = "12454",
 
 ## Use glimpse function to check the data frame
 dplyr::glimpse(sales)
-#> Observations: 7
-#> Variables: 33
+#> Rows: 7
+#> Columns: 33
 #> $ result_contact_id                            <chr> "35041909076033466731615…
 #> $ result_user_id                               <chr> "334595", "435944", "334…
 #> $ result_company_id                            <lgl> NA, NA, NA, NA, NA, NA, …

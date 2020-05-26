@@ -17,7 +17,7 @@ Authors@R: c(
          email = "frans@ixpantia.com",
          comment = c(ORCID = "0000-0002-7853-2811")))
 Description: Connect to the Less Annoying CRM API to get your data clean and tidy.
-License: GPL-2 + file LICENCE
+License: GPL-3 | file LICENSE
 URL: https://ixpantia.github.io/lacrmr/
 BugReports: https://github.com/ixpantia/lacrmr/issues
 Encoding: UTF-8
