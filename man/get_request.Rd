@@ -6,9 +6,6 @@
 \usage{
 get_request(user_code, api_token, api_function, ...)
 }
-\arguments{
-\item{x}{an integer}
-}
 \description{
 GET call to lacrm API
 }
