@@ -1,4 +1,6 @@
 #' @import magrittr
+NULL
+
 #'
 #' @title get_contact_information
 #'
