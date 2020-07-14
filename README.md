@@ -1,13 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
-
-<!-- badges: start -->
-
-[![CRAN
-status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
-<!-- badges: end -->
+# lacrmr
 
 Get the information from your Less Annoying Customer Relationship
 Management API in a tidy data way. Useful for getting metrics, visualize
@@ -25,8 +19,7 @@ For this you will need to connect to the Less Annoying CRM API and deal
 with the json file to take it to a tidy format as a first step.
 
 This package provides you with 4 functions that makes this process
-easier. These are and will
-return:
+easier. These are and will return:
 
 | Function                      | Return                                                                                                                |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------- |
