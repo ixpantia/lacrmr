@@ -13,11 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
-
-<!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
-<!-- badges: end -->
+# lacrmr 
 
 Get the information from your Less Annoying Customer Relationship Management API in a tidy data way. Useful for getting metrics, visualize your goals, create reports
 and automate your workflow.
