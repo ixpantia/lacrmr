@@ -1,6 +1,6 @@
 Package: lacrmr
 Title: Connect to the Less Annoying CRM API
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
   person(given = "ixpantia, 
          family = SRL",
@@ -22,7 +22,7 @@ URL: https://ixpantia.github.io/lacrmr/
 BugReports: https://github.com/ixpantia/lacrmr/issues
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Depends:
     R (>= 3.6),
     magrittr
