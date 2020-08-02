@@ -1,7 +1,8 @@
-library(mockery)
+# Test data for mocks in testing functions
 
 contact_information <- system.file("testdata/prueba_get_contact_information.json",
                                    package = "lacrmr")
+
 contact_information <- jsonlite::fromJSON(contact_information)
 
 
