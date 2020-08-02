@@ -17,7 +17,7 @@ search_contacts <- function(user_code, api_token, search_term = "") {
     warning("Please add a valid user code")
   } else if (missing(api_token)) {
     warning("Please add a valid API token")
-  } else
+  } else {
     tryCatch(
       {
         r <- get_request(user_code = user_code,
@@ -97,6 +97,7 @@ search_contacts <- function(user_code, api_token, search_term = "") {
           select(-result_email, -result_phone, -result_website, -result_address,
                  -result_contact_custom_fields, -result_custom_fields)
         return(contenido)
+  }
 
 }
 
