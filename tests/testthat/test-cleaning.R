@@ -1,7 +1,7 @@
 
-context("limpieza")
+context("Cleaning")
 
-testthat::test_that("List are remove from the pipeline report", {
+testthat::test_that("List are removed from the pipeline report", {
   mockery::stub(where = get_pipeline_report,
                 what = "jsonlite::fromJSON",
                 how = pipeline_data)
