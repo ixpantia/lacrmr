@@ -40,7 +40,7 @@ are and will return:
 
 ## Installation
 
-Rigth now we have the development version. You can install lacrmr from github:
+Right now we have the development version. You can install `lacrmr` from github:
 
 ```{r, eval = FALSE}
 #install.packages("devtools")
@@ -92,6 +92,6 @@ Have fun analyzing your customer relationship data!
 ## Getting help
 
 If you have problems using the functions or find a bug, please let us know
-with a minimal reproducible example on [github](https://github.com/ixpantia/lacrmr/issues) or send ud an email to
-hola@ixpantia.com
+with a minimal reproducible example on [github](https://github.com/ixpantia/lacrmr/issues) 
+or send us an email to `hola@ixpantia.com`.
 

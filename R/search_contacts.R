@@ -30,32 +30,25 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         contenido <- jsonlite::fromJSON(contenido)
         contenido <- as.data.frame(contenido)
 
-        # Hay que traer solo nombres de contactos, de lo contrario llamado
-        # trae como lista anidada empresas a las que pertenece el usuario
-        # como un contacto independiente, ingresando muchos NA's que ensucian.
+        # Pull only contact names, otherwise this will pull a nested list of 
+        # companies where users were assigned as independent contacts
         contenido <- contenido %>%
           filter(!is.na(Result.FirstName))
 
-        # Limpiar nombres del data frame
         contenido <- janitor::clean_names(contenido)
 
 
-        # Limpieza PHONE ----------------------------------------------------------
-        # Cambio de listas vacias por data.frame similar con
-        # estructura igual a listas con entradas
+        # Clean PHONE ---------------------------------------------------------
         for (i in 1:nrow(contenido)) {
           contenido$result_phone[i][(length(contenido$result_phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
         }
 
-        # Aplanar lista uniforme y adjuntarla con dataframe completo por posicion
         phone <- do.call(rbind.data.frame, contenido$result_phone)
         phone <- phone %>%
           select(Text, Type) %>%
           select(phone_numer = Text, phone_type = Type)
 
-
-
-        # Limpieza MAIL -----------------------------------------------------------
+        # Clean MAIL ----------------------------------------------------------
         for (i in 1:nrow(contenido)) {
           contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA))
         }
@@ -66,24 +59,11 @@ search_contacts <- function(user_code, api_token, search_term = "") {
           select(email = Text, email_type = Type)
 
 
-        # Limpieza address --------------------------------------------------------
-        # TODO// hay que arreglar esta funcion y ver como limpiarla
-        #    for (i in 1:nrow(contenido)) {
-        #      contenido$result_address[i][(length(contenido$result_address[[i]]$Text) == 0)] <- list(data.frame("Street" = NA,
-        #                                                                                                    "City" = NA,
-        #                                                                                                    "State" = NA,
-        #                                                                                                    "Zip" = NA,
-        #                                                                                                    "Country" = NA,
-        #                                                                                                    "Type" = NA))
-        #    }
-        #
-        #    address <- do.call(rbind.data.frame, contenido$result_address)
-        #    email <- email %>%
-        #      select(Text, Type) %>%
-        #      select(email = Text, email_type = Type)
+        # Clean ADDRESS -------------------------------------------------------
+        # TODO// See ticket #41
 
 
-        # Limpieza website --------------------------------------------------------
+        # Clean WEBSITE -------------------------------------------------------
         for (i in 1:nrow(contenido)) {
           contenido$result_website[i][(length(contenido$result_website[[i]]$Text) == 0)] <- list(data.frame("Text" = NA))
         }
@@ -91,13 +71,12 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         website <- do.call(rbind.data.frame, contenido$result_website)
 
 
-        # Limpiar tabla final -----------------------------------------------------
+        # Clean final data frame ----------------------------------------------
 
         contenido <- bind_cols(contenido, phone, email, website) %>%
           select(-result_email, -result_phone, -result_website, -result_address,
                  -result_contact_custom_fields, -result_custom_fields)
         return(contenido)
   }
-
 }
 
