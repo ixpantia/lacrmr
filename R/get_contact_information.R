@@ -28,14 +28,9 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
                        ... = contact_id)
     })
 
-      # Parse json
-
-      # Usamos datos ejemplo:
-
     contenido <- system.file("testdata/prueba_get_contact_information.json",
                                        package = "lacrmr")
 
-    # Parte de la funcion
     contenido <- httr::content(r, "text")
 
     contenido <- jsonlite::fromJSON(contenido,
@@ -43,8 +38,6 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
 
       jsonlite::toJSON(contenido, pretty = TRUE)
 
-      # Sobre este segmento se corre prueba manteniendo igualdad en función
-      # creada para este fin
       for (i in 1:length(contenido$Contact)) {
         # print(contenido[["Contact"]][[i]])
         contenido$Contact[i][(is.null(contenido$Contact[[i]]) == TRUE)] <- NA
