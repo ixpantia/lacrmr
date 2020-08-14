@@ -11,6 +11,13 @@ NULL
 #' @param contact_id The contact name or other term to make an specific call
 #' to the API.
 #'
+#' @examples
+#'\dontrun{
+#'get_contact_information(user_code = "6A6E88",
+#'                        api_token = "TQ9XM",
+#'                        contact_id = "Fulano")
+#'}
+#'
 #' @export
 get_contact_information <- function(user_code, api_token, contact_id = "") {
   if (missing(user_code)) {

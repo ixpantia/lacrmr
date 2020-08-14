@@ -20,3 +20,11 @@ Return your pipeline report information from Less annoying CRM.
 For this you will need to know the pipelineId, StatusId, and CustomFieldId
 You can get this PipelineId's at https://www.lessannoyingcrm.com/app/Settings/Api'
 }
+\examples{
+\dontrun{
+get_pipeline_report(user_code = "6A6E88",
+                    api_token = "96066",
+                    pipelineid = "57102821")
+}
+
+}

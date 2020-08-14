@@ -11,6 +11,14 @@ NULL
 #' @param search_term The contact name or other term to make an specific call
 #' to the API. If you  want to search for group enter "Group:GROUP_NAME"
 #'
+#'
+#' @examples
+#'\dontrun{
+#'search_contacts(user_code = "6A6E88",
+#'                api_token = "TQ9XM",
+#'                search_term = "brenesii")
+#'}
+#'
 #' @export
 search_contacts <- function(user_code, api_token, search_term = "") {
   if (missing(user_code)) {

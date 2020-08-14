@@ -17,3 +17,11 @@ to the API.}
 \description{
 Return the contact information.
 }
+\examples{
+\dontrun{
+get_contact_information(user_code = "6A6E88",
+                       api_token = "TQ9XM",
+                       contact_id = "Fulano")
+}
+
+}
