@@ -13,6 +13,13 @@ NULL
 #' @param api_token The api token to connect to your account
 #' @param pipelineid The id of the pipeline you want to get the report from
 #'
+#' @examples
+#'\dontrun{
+#'get_pipeline_report(user_code = "6A6E88",
+#'                     api_token = "96066",
+#'                     pipelineid = "57102821")
+#'}
+#'
 #' @export
 get_pipeline_report <- function(user_code, api_token, pipelineid) {
   if (missing(user_code)) {

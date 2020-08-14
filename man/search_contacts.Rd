@@ -17,3 +17,11 @@ to the API. If you  want to search for group enter "Group:GROUP_NAME"}
 \description{
 Return the contacts information from Less annoying CRM.
 }
+\examples{
+\dontrun{
+search_contacts(user_code = "6A6E88",
+               api_token = "TQ9XM",
+               search_term = "brenesii")
+}
+
+}

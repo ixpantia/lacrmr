@@ -18,3 +18,11 @@ Return your user account information from Less annoying CRM
 For using this function you will need to get your credentials from
 your Less Annoying CRM. Make sure to have your user code and your api_token.
 }
+\examples{
+\dontrun{
+get_account_information(user_code = "6A6E88",
+                       api_token = "FBHV7C")
+}
+
+
+}

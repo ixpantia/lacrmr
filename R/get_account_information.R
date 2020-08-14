@@ -12,6 +12,13 @@ NULL
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
 #'
+#'@examples
+#'\dontrun{
+#'get_account_information(user_code = "6A6E88",
+#'                        api_token = "FBHV7C")
+#'}
+#'
+#'
 #' @export
 get_account_information <- function(user_code, api_token) {
   if (missing(user_code)) {
