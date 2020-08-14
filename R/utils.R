@@ -1,5 +1,4 @@
 #' GET call to lacrm API
-#' @param x an integer
 #' @param user_code The User Code to identify your account
 #' @param api_function The API  token to connect to your account
 #' @param api_function The `Less Annoying CRM` function that you want to use in the API call
