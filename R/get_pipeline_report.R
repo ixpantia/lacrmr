@@ -37,9 +37,10 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
                        ... = pipelineid)
     })
 
-    validate_json <- jsonlite::validate(httr::content(r, "text"))[1]
+    content <- httr::content(r, "text")
+    validate_json <- jsonlite::validate(content)
 
-    if (validate_json == FALSE) {
+    if (validate_json[1] == FALSE) {
       stop("Invalid user credentials or pipeline ID.\n Please check your user code or your api token")
     }
 
