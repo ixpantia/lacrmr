@@ -23,7 +23,7 @@ NULL
 #' @export
 get_pipeline_report <- function(user_code, api_token, pipelineid) {
   if (missing(user_code)) {
-   warning("Please add a valid user code")
+    warning("Please add a valid user code")
   } else if (missing(api_token)) {
     warning("Please add a valid API token")
   } else if (missing(pipelineid)) {
@@ -31,49 +31,33 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
   } else {
 
     tryCatch({
-        r <- get_request(user_code = user_code,
-                         api_token = api_token,
-                         api_function = "GetPipelineReport",
-                         ... = pipelineid)
-      })
+      r <- get_request(user_code = user_code,
+                       api_token = api_token,
+                       api_function = "GetPipelineReport",
+                       ... = pipelineid)
+    })
 
-        contenido <- jsonlite::fromJSON(httr::content(r, "text"),
-                                        simplifyVector = TRUE)
+    validate_json <- jsonlite::validate(httr::content(r, "text"))[1]
 
-        if (length(contenido$Error) == 1) {
-          if (stringr::str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
-            stop("Invalid user credentials. Please check your user code or your api token",
-                 call. = FALSE)
-          }
-        }
+    if (validate_json == FALSE) {
+      stop("Invalid user credentials or pipeline ID.\n Please check your user code or your api token")
+    }
 
-        if (length(contenido$Error) == 1) {
-          if (stringr::str_detect(contenido$Error, "Your account is not active") == TRUE) {
-            stop("Your account is not active. Please contact lacrm",
-                 call. = FALSE)
-          }
-        }
+    pipeline <- jsonlite::fromJSON(httr::content(r, "text"),
+                                    simplifyVector = TRUE)
 
-        contenido <- as.data.frame(contenido)
-        contenido <- jsonlite::flatten(contenido)
+    pipeline <- as.data.frame(pipeline)
+    pipeline <- jsonlite::flatten(pipeline)
 
-        if (length(contenido$Error) == 1) {
-          if (stringr::str_detect(contenido$Error, "You don't have permission to view PipelineId") ==
-              TRUE) {
-            stop("Invalid pipelineid. Please check your pipelineid",
-                 call. = FALSE)
-          }
-        }
+    # Clean data frame variable names.
+    pipeline <- janitor::clean_names(pipeline)
 
-        # Clean data frame variable names.
-        contenido <- janitor::clean_names(contenido)
+    # Select variables of interest
+    pipeline <- pipeline %>%
+      dplyr::select(-result_email, -result_phone, -result_address,
+                    -result_website, -result_contact_custom_fields)
 
-        # Select variables of interest
-        contenido <- contenido %>%
-          dplyr::select(-result_email, -result_phone, -result_address,
-                 -result_website, -result_contact_custom_fields)
-
-        return(contenido)
+    return(pipeline)
   }
 }
 
