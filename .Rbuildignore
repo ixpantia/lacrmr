@@ -4,4 +4,6 @@
 ^docs$
 ^Meta$
 ^README\.Rmd$
-
+^README-.*\.png$
+^.Rprofile$
+^LICENSE\.md$
