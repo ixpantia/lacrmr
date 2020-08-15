@@ -35,22 +35,32 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
                        ... = contact_id)
     })
 
-    contenido <- httr::content(r, "text")
+    validate_json <- jsonlite::validate(httr::content(r, "text"))[1]
 
-    contenido <- jsonlite::fromJSON(contenido,
+    if (validate_json == FALSE) {
+      stop("Invalid user credentials or contact ID.\n Please check your user code or your api token")
+    }
+
+    contact_info <- httr::content(r, "text")
+
+    if (contact_info$Success[1] == FALSE) {
+      stop("Invalid user credentials or contact ID.\n Please check your user code or your api token")
+    }
+
+    contact_info <- jsonlite::fromJSON(contact_info,
                                     simplifyVector = TRUE)
 
-      for (i in 1:length(contenido$Contact)) {
-        contenido$Contact[i][(is.null(contenido$Contact[[i]]) == TRUE)] <- NA
-        contenido$Contact[i][(sjmisc::is_empty(contenido$Contact[[i]]) == TRUE)] <- NA
-        contenido$Contact[i][(contenido$Contact[[i]] == "")] <- NA
+      for (i in 1:length(contact_info$Contact)) {
+        contact_info$Contact[i][(is.null(contact_info$Contact[[i]]) == TRUE)] <- NA
+        contact_info$Contact[i][(sjmisc::is_empty(contact_info$Contact[[i]]) == TRUE)] <- NA
+        contact_info$Contact[i][(contact_info$Contact[[i]] == "")] <- NA
       }
 
-      contenido <- as.data.frame(contenido) %>%
+      contact_info <- as.data.frame(contact_info) %>%
         dplyr::select(-Success) %>%
         janitor::clean_names()
 
-      return(contenido)
+      return(contact_info)
   }
 
 }
