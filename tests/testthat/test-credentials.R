@@ -26,16 +26,3 @@ testthat::test_that("Search contacts error message with invalid credentials", {
                                search_term = "brenesii"))
 })
 
-
-# test_that("pipeline report is succesful with valid credentials", {
-#   # Acceso a claves ---------------------------------------------------------
-#   codigo_usuario  <- "88518"
-#   token_api <- "44HK8TM1ZTFMTDTNYZ1M215DPH15D0M7310SX31F97G3P2SC3F"
-#   pipelineid <- "3641868001717448079753414412494"
-#
-#   # Hacer conexion
-#   pipeline_general <- get_pipeline_report(user_code = codigo_usuario,
-#                                                   api_token = token_api,
-#                                                   pipelineid = pipelineid)
-# })
-
