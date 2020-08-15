@@ -13,7 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# lacrmr 
+# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
+<!-- badges: end -->
 
 Get the information from your Less Annoying Customer Relationship Management API in a tidy data way. Useful for getting metrics, visualize your goals, create reports
 and automate your workflow.
@@ -40,7 +44,7 @@ are and will return:
 
 ## Installation
 
-Right now we have the development version. You can install `lacrmr` from github:
+Rigth now we have the development version. You can install lacrmr from github:
 
 ```{r, eval = FALSE}
 #install.packages("devtools")
@@ -92,6 +96,6 @@ Have fun analyzing your customer relationship data!
 ## Getting help
 
 If you have problems using the functions or find a bug, please let us know
-with a minimal reproducible example on [github](https://github.com/ixpantia/lacrmr/issues) 
-or send us an email to `hola@ixpantia.com`.
+with a minimal reproducible example on [github](https://github.com/ixpantia/lacrmr/issues) or send ud an email to
+hola@ixpantia.com
 
