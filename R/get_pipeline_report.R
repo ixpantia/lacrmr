@@ -46,6 +46,10 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
     pipeline <- jsonlite::fromJSON(httr::content(r, "text"),
                                     simplifyVector = TRUE)
 
+    if (pipeline$Success[1] == FALSE) {
+      stop("Invalid user credentials or pipeline ID.\n Please check your user code or your api token")
+    }
+
     pipeline <- as.data.frame(pipeline)
     pipeline <- jsonlite::flatten(pipeline)
 
