@@ -35,20 +35,22 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
                        ... = contact_id)
     })
 
-    validate_json <- jsonlite::validate(httr::content(r, "text"))[1]
+    content <- httr::content(r, "text")
+    validate_json <- jsonlite::validate(content)
+
+    print(validate_json)
 
     if (validate_json == FALSE) {
       stop("Invalid user credentials or contact ID.\n Please check your user code or your api token")
     }
 
-    contact_info <- httr::content(r, "text")
+    contact_info <- jsonlite::fromJSON(content, simplifyVector = TRUE)
 
     if (contact_info$Success[1] == FALSE) {
       stop("Invalid user credentials or contact ID.\n Please check your user code or your api token")
     }
 
-    contact_info <- jsonlite::fromJSON(contact_info,
-                                    simplifyVector = TRUE)
+    print(contact_info)
 
       for (i in 1:length(contact_info$Contact)) {
         contact_info$Contact[i][(is.null(contact_info$Contact[[i]]) == TRUE)] <- NA

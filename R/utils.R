@@ -11,7 +11,7 @@ get_request <- function(user_code, api_token, api_function, ...) {
     pipelineid <-  item
   } else if (api_function == "SearchContacts") {
     search_term <- item
-  } else if (api_function == "ContactId") {
+  } else if (api_function == "GetContact") {
     contact_id <- item
   }
 
