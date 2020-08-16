@@ -1,7 +1,6 @@
 context("Cleaning")
 
 testthat::test_that("List are removed from the pipeline report", {
-
   mockery::stub(where = get_pipeline_report,
                 what = "jsonlite::validate",
                 how = TRUE)
@@ -16,7 +15,6 @@ testthat::test_that("List are removed from the pipeline report", {
 
   expect_equal(ncol(pipeline_test), 33)
   expect_equal(nrow(pipeline_test), 7)
-
 })
 
 
@@ -29,15 +27,11 @@ testthat::test_that("Lists are removed from the contacts information", {
                 what = "jsonlite::fromJSON",
                 how = contact_information)
 
-  #mockery::stub(where = get_contact_information,
-   #             what = "get_request",
-    #            how = )
-
-  get_contact_information_test <- get_contact_information(user_code = "user_code_test",
-                                                  api_token = "token_api_test",
-                                                  contact_id = "123")
+  get_contact_information_test <- get_contact_information(
+    user_code = "user_code_test",
+    api_token = "token_api_test",
+    contact_id = "123")
 
   expect_equal(ncol(get_contact_information_test), 20)
   expect_equal(nrow(get_contact_information_test), 1)
-
 })
