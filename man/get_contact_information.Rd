@@ -4,7 +4,7 @@
 \alias{get_contact_information}
 \title{get_contact_information}
 \usage{
-get_contact_information(user_code, api_token, contactid = "")
+get_contact_information(user_code, api_token, contact_id = "")
 }
 \arguments{
 \item{user_code}{The user code to identify your account}

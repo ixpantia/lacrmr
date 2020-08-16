@@ -37,7 +37,7 @@ testthat::test_that("Lists are removed from the contacts information", {
                                                   api_token = "token_api_test",
                                                   contact_id = "123")
 
-  expect_equal(ncol(get_contact_information_test), 22)
+  expect_equal(ncol(get_contact_information_test), 20)
   expect_equal(nrow(get_contact_information_test), 1)
 
 })

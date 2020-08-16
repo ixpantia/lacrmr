@@ -32,3 +32,20 @@ get_request <- function(user_code, api_token, api_function, ...) {
 }
 
 
+#' Flatten nested lists
+#'
+#' Code based on answer on Stack Overflow:
+#' https://stackoverflow.com/a/41882883/1329484
+#'
+#' @param nested_list A nested list to be flattened
+#' @noRd
+flattenlist <- function(nested_list){
+  morelists <- sapply(nested_list, function(xprime) class(xprime)[1] == "list")
+  out <- c(nested_list[!morelists], unlist(nested_list[morelists], recursive = FALSE))
+  if (sum(morelists)) {
+    Recall(out)
+  }else{
+    return(out)
+  }
+}
+
