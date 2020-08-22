@@ -1,7 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# lacrmr
+# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
+
+<!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
+<!-- badges: end -->
 
 Get the information from your Less Annoying Customer Relationship
 Management API in a tidy data way. Useful for getting metrics, visualize
@@ -23,15 +29,15 @@ easier. These are and will return:
 
 | Function                      | Return                                                                                                                |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **get\_pipeline\_report()**   | It will provide you with a dataframe containing the data correspondant to the pipeline that you need.                 |
+| **get\_pipeline\_report()**   | It will provide you with a dataframe containing the data corresponding to the pipeline that you need.                 |
 | **get\_account\_information** | This will give you the information of your account.                                                                   |
 | **get\_contact\_information** | Information related to the contact you are searching for.                                                             |
 | **search\_contacts**          | If you want to make sure a contact exists on your CRM, this function will return an statement confirming the contact. |
 
 ## Installation
 
-Rigth now we have the development version. You can install lacrmr from
-github:
+Right now we have the development version. You can install lacrmr from
+Github:
 
 ``` r
 #install.packages("devtools")
@@ -109,5 +115,5 @@ Have fun analyzing your customer relationship data\!
 
 If you have problems using the functions or find a bug, please let us
 know with a minimal reproducible example on
-[github](https://github.com/ixpantia/lacrmr/issues) or send ud an email
+[github](https://github.com/ixpantia/lacrmr/issues) or send us an email
 to <hola@ixpantia.com>

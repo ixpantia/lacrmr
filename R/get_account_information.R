@@ -32,21 +32,24 @@ get_account_information <- function(user_code, api_token) {
         r <- get_request(user_code = user_code,
                          api_token = api_token,
                          api_function = 'GetUserInfo')
-
       })
 
-        contenido <- httr::content(r, "text")
-        contenido <- jsonlite::fromJSON(contenido)
 
-        if (length(contenido$Error) == 1) {
-          if (stringr::str_detect(contenido$Error, "Invalid user credentials") == TRUE) {
-            stop("Invalid user credentials. Please check your user code or your api token",
-                 call. = FALSE)
-          }
-        }
+  validate_json <- jsonlite::validate(httr::content(r, "text"))[1]
 
-        contenido <- as.data.frame(contenido)
+  if (validate_json == FALSE) {
+    stop("Invalid user credentials.\n Please check your user code or your api token")
+  }
 
-        return(contenido)
+  account_info <- httr::content(r, "text")
+  account_info <- jsonlite::fromJSON(account_info)
+
+  if (pipeline$Success[1] == FALSE) {
+    stop("Invalid user credentials or pipeline ID.\n Please check your user code or your api token")
+  }
+
+  account_info <- as.data.frame(account_info)
+
+  return(account_info)
 }
 

@@ -35,28 +35,32 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
                        ... = contact_id)
     })
 
-    contenido <- system.file("testdata/prueba_get_contact_information.json",
-                                       package = "lacrmr")
+    content <- httr::content(r, "text")
+    validate_json <- jsonlite::validate(content)
 
-    contenido <- httr::content(r, "text")
+    if (validate_json == FALSE) {
+      stop("Invalid user credentials or contact ID.\n Please check your user code or your api token")
+    }
 
-    contenido <- jsonlite::fromJSON(contenido,
-                                    simplifyVector = TRUE)
+    contact_info <- jsonlite::fromJSON(content, simplifyVector = TRUE)
 
-      jsonlite::toJSON(contenido, pretty = TRUE)
+    if (contact_info$Success[1] == FALSE) {
+      stop("Invalid user credentials or contact ID.\n Please check your user code or your api token")
+    }
 
-      for (i in 1:length(contenido$Contact)) {
-        # print(contenido[["Contact"]][[i]])
-        contenido$Contact[i][(is.null(contenido$Contact[[i]]) == TRUE)] <- NA
-        contenido$Contact[i][(sjmisc::is_empty(contenido$Contact[[i]]) == TRUE)] <- NA
-        contenido$Contact[i][(contenido$Contact[[i]] == "")] <- NA
-      }
+    contact_info <- flattenlist(contact_info)
+    contact_info <- sapply(contact_info,
+                    function(x) ifelse(x == "NULL", NA, x))
+    contact_info <- lapply(contact_info,
+                    function(x) if (length(x) == 0) {0} else {x})
+    contact_info <- lapply(contact_info,
+                    function(x) if (sjmisc::is_empty(x) == TRUE) {NA} else {x})
 
-      contenido <- as.data.frame(contenido) %>%
-        dplyr::select(-Success) %>%
-        janitor::clean_names()
+    contact_info <- as.data.frame(contact_info) %>%
+      dplyr::select(-Success) %>%
+      janitor::clean_names()
 
-      return(contenido)
+    return(contact_info)
   }
 
 }
