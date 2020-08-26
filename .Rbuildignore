@@ -7,3 +7,4 @@
 ^README-.*\.png$
 ^.Rprofile$
 ^LICENSE\.md$
+^prueba_conexion.R
