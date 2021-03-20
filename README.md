@@ -19,8 +19,8 @@ If you have a business or an organization that uses [Less Annoying
 CRM](https://account.lessannoyingcrm.com/invite/51B03)* to manage contacts
 but also you are an R user, probably you will want to get your customer 
 relationship data into R and do your own analysis or even to automate 
-your monthly reports. [* note that this is a referral URL, it will give you
-and us one additional month free if you use it)
+your monthly reports. [* *note that this is a referral URL, it will give you
+and us one additional month free if you use it*].
 
 For this you will need to connect to the Less Annoying CRM API and deal
 with the json file to take it to a tidy format as a first step.
