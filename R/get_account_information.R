@@ -18,7 +18,6 @@ NULL
 #'                        api_token = "FBHV7C")
 #'}
 #'
-#'
 #' @export
 get_account_information <- function(user_code, api_token) {
   if (missing(user_code)) {
@@ -44,7 +43,7 @@ get_account_information <- function(user_code, api_token) {
   account_info <- httr::content(r, "text")
   account_info <- jsonlite::fromJSON(account_info)
 
-  if (pipeline$Success[1] == FALSE) {
+  if (account_info$Success[1] == FALSE) {
     stop("Invalid user credentials or pipeline ID.\n Please check your user code or your api token")
   }
 
