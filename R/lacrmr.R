@@ -15,5 +15,5 @@ utils::globalVariables(c(".", "Success", "result_email", "result_phone",
                          "result_contact_custom_fields", "Result.FirstName",
                          "result_email", "result_phone", "result_website",
                          "filter", "select", "Text", "Type", "bind_cols",
-                         "result_custom_fields"
+                         "result_custom_fields", "pipeline"
                          ))
