@@ -7,11 +7,11 @@ testthat::test_that("Invalid credentials", {
     "Please add a valid user code"
   )
 
-  # expect_error(
-  #   get_account_information(user_code = "6A6E88",
-  #                           api_token = "57102821"),
-  #   "Invalid user credentials"
-  # )
+  expect_error(
+    get_account_information(user_code = "6A6E88",
+                            api_token = "57102821"),
+    "Invalid user credentials"
+  )
 
   expect_warning(
     get_contact_information(user_code = "6A6E88",
