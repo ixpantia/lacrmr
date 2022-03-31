@@ -34,11 +34,11 @@ search_contacts <- function(user_code, api_token, search_term = "") {
                          ... = search_term)
       })
 
-        contenido <- httr::content(r, "text")
+        contenido <- httr::content(r, "text", encoding = "UTF-8")
         contenido <- jsonlite::fromJSON(contenido)
         contenido <- as.data.frame(contenido)
 
-        # Pull only contact names, otherwise this will pull a nested list of 
+        # Pull only contact names, otherwise this will pull a nested list of
         # companies where users were assigned as independent contacts
         contenido <- contenido %>%
           filter(!is.na(Result.FirstName))

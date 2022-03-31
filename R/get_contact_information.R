@@ -35,7 +35,7 @@ get_contact_information <- function(user_code, api_token, contact_id = "") {
                        ... = contact_id)
     })
 
-    content <- httr::content(r, "text")
+    content <- httr::content(r, "text", encoding = "UTF-8")
     validate_json <- jsonlite::validate(content)
 
     if (validate_json == FALSE) {

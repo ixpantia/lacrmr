@@ -34,13 +34,13 @@ get_account_information <- function(user_code, api_token) {
       })
 
 
-  validate_json <- jsonlite::validate(httr::content(r, "text"))[1]
+  validate_json <- jsonlite::validate(httr::content(r, "text", encoding = "UTF-8"))[1]
 
   if (validate_json == FALSE) {
     stop("Invalid user credentials.\n Please check your user code or your api token")
   }
 
-  account_info <- httr::content(r, "text")
+  account_info <- httr::content(r, "text", encoding = "UTF-8")
   account_info <- jsonlite::fromJSON(account_info)
 
   if (account_info$Success[1] == FALSE) {

@@ -44,7 +44,7 @@ get_pipeline_report <- function(user_code, api_token, pipelineid) {
       stop("Invalid user credentials or pipeline ID.\n Please check your user code or your api token")
     }
 
-    pipeline <- jsonlite::fromJSON(httr::content(r, "text"),
+    pipeline <- jsonlite::fromJSON(httr::content(r, "text", encoding = "UTF-8"),
                                     simplifyVector = TRUE)
 
     if (pipeline$Success[1] == FALSE) {
