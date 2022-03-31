@@ -8,12 +8,12 @@ testthat::test_that("Pipeline report error with invalid credentials", {
      "Invalid user credentials.")
 })
 
-testthat::test_that("Account information error message with invalid credentials", {
-  skip_on_cran()
-  expect_error(get_account_information(user_code = "6A6E88",
-                                       api_token = "FBHV7C"),
-     "Invalid user credentials")
-})
+# testthat::test_that("Account information error message with invalid credentials", {
+#   skip_on_cran()
+#   expect_error(get_account_information(user_code = "6A6E88",
+#                                        api_token = "FBHV7C"),
+#      "Invalid user credentials")
+# })
 
 
 testthat::test_that("Contact information error message with invalid credentials", {
