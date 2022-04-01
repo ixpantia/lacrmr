@@ -35,3 +35,4 @@ testthat::test_that("Lists are removed from the contacts information", {
   expect_equal(ncol(get_contact_information_test), 20)
   expect_equal(nrow(get_contact_information_test), 1)
 })
+
