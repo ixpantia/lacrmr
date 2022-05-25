@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
+# lacrmr <a href="https://ixpantia.github.io/lacrmr/"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
 
 <!-- badges: start -->
 
