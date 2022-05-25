@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
+# lacrmr <a href="https://ixpantia.github.io/lacrmr/"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
