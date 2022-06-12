@@ -62,7 +62,7 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         # Clean MAIL ----------------------------------------------------------
         for (i in 1:nrow(contenido)) {
           contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <-
-            list(data.frame("Text" = NA, "Type" = NA))
+            list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
         email <- do.call(rbind.data.frame, contenido$result_email)
@@ -78,11 +78,11 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         # Clean WEBSITE -------------------------------------------------------
         for (i in 1:nrow(contenido)) {
           contenido$result_website[i][(length(contenido$result_website[[i]]$Text) == 0)] <-
-            list(data.frame("Text" = NA))
+            list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
         website <- do.call(rbind.data.frame, contenido$result_website) %>%
-          rename(website = Text)
+          select(website = Text)
 
 
         # Clean final data frame ----------------------------------------------
