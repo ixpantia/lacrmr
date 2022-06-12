@@ -24,5 +24,4 @@ get_account_information(user_code = "6A6E88",
                        api_token = "FBHV7C")
 }
 
-
 }

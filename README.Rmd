@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# lacrmr <a href="url"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
+# lacrmr <a href="https://ixpantia.github.io/lacrmr/"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
@@ -56,7 +56,7 @@ devtools::install_github("ixpantia/lacrmr")
 ## Credentials:
 
 At first you will need to obtain your [user code and API
-token](https://www.lessannoyingcrm.com/app/Settings/Api) from your Less
+token](https://www.lessannoyingcrm.com/help/how-to-get-your-user-code-and-api-key) from your Less
 Annoying CRM. Once you have your credentials, you will be able to use the
 functions and take your lacrm data into R!
 
@@ -65,7 +65,7 @@ not leave your credentials in your code, check the package vignette!
 
 ## Usage
 
-```{r, include = FALSE}
+```{r, eval = FALSE}
 library(lacrmr)
 library(mockery)
 pipeline_data <- system.file("testdata/pipeline_test_data.json",
@@ -77,7 +77,7 @@ stub(where = get_pipeline_report,
      how = pipeline_data)
 ```
 
-```{r}
+```{r, eval=FALSE}
 # Load the lacrmr package in your session
 library(lacrmr)
 
