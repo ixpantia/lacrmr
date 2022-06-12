@@ -88,8 +88,9 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         # Clean final data frame ----------------------------------------------
         contenido <- bind_cols(contenido, phone, email, website) %>%
           select(-result_email, -result_phone, -result_website, -result_address,
-                 -result_contact_custom_fields, -result_custom_fields)
+                 -result_contact_custom_fields, -result_custom_fields) %>%
+          rename_with(~stringr::str_remove(., "result_"))
+
         return(contenido)
   }
 }
-
