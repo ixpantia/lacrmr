@@ -48,17 +48,21 @@ search_contacts <- function(user_code, api_token, search_term = "") {
 
         # Clean PHONE ---------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$result_phone[i][(length(contenido$result_phone[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA, "Clean" = NA))
+          contenido$result_phone[i][(length(contenido$result_phone[[i]]$Text) == 0)] <-
+            list(data.frame("Text" = NA, "Type" = NA,
+                            "Clean" = NA, "TypeId" = NA))
         }
 
         phone <- do.call(rbind.data.frame, contenido$result_phone)
         phone <- phone %>%
           select(Text, Type) %>%
-          select(phone_numer = Text, phone_type = Type)
+          select(phone_numer = Text,
+                 phone_type = Type)
 
         # Clean MAIL ----------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <- list(data.frame("Text" = NA, "Type" = NA))
+          contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <-
+            list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
         email <- do.call(rbind.data.frame, contenido$result_email)
@@ -73,18 +77,20 @@ search_contacts <- function(user_code, api_token, search_term = "") {
 
         # Clean WEBSITE -------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$result_website[i][(length(contenido$result_website[[i]]$Text) == 0)] <- list(data.frame("Text" = NA))
+          contenido$result_website[i][(length(contenido$result_website[[i]]$Text) == 0)] <-
+            list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
-        website <- do.call(rbind.data.frame, contenido$result_website)
+        website <- do.call(rbind.data.frame, contenido$result_website) %>%
+          select(website = Text)
 
 
         # Clean final data frame ----------------------------------------------
-
         contenido <- bind_cols(contenido, phone, email, website) %>%
           select(-result_email, -result_phone, -result_website, -result_address,
-                 -result_contact_custom_fields, -result_custom_fields)
+                 -result_contact_custom_fields, -result_custom_fields) %>%
+          rename_with(~stringr::str_remove(., "result_"))
+
         return(contenido)
   }
 }
-
