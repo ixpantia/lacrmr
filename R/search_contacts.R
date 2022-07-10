@@ -54,13 +54,9 @@ search_contacts <- function(user_code, api_token, search_term = "") {
                             "Clean" = NA, "TypeId" = NA))
         }
 
-        phone <- bind_rows(contenido$phone)
-
-        # phone <- do.call(rbind.data.frame, contenido$phone)
-        # phone <- phone %>%
-        #   select(Text, Type) %>%
-        #   select(phone_numer = Text,
-        #          phone_type = Type)
+        phone <- dplyr::bind_rows(contenido$phone) %>%
+          janitor::clean_names() %>%
+          rename_with(~paste0("phone_", .))
 
         # Clean MAIL ----------------------------------------------------------
         for (i in 1:nrow(contenido)) {
@@ -68,8 +64,9 @@ search_contacts <- function(user_code, api_token, search_term = "") {
             list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
-
-
+        email <- dplyr::bind_rows(contenido$email) %>%
+          janitor::clean_names() %>%
+          rename_with(~paste0("email_", .))
 
         # TODO: Ref #78
         # # check email
@@ -88,7 +85,24 @@ search_contacts <- function(user_code, api_token, search_term = "") {
 
 
         # Clean ADDRESS -------------------------------------------------------
-        # TODO// See ticket #41
+        for (i in 1:nrow(contenido)) {
+          contenido$address[i][(length(contenido$address[[i]]$Street) == 0)] <-
+            list(data.frame("Street" = NA,
+                            "City" = NA,
+                            "State" = NA,
+                            "Zip" = NA,
+                            "Country" = NA,
+                            "Type" = NA))
+        }
+
+        for (i in 1:nrow(contenido)) {
+          contenido$email[i][(length(contenido$email[[i]]$Text) == 0)] <-
+            list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
+        }
+
+        address <- bind_rows(contenido$address) %>%
+          janitor::clean_names() %>%
+          rename_with(~paste0("address_", .))
 
 
         # Clean WEBSITE -------------------------------------------------------
@@ -97,7 +111,9 @@ search_contacts <- function(user_code, api_token, search_term = "") {
             list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
-        website <- bind_rows(contenido$website)
+        website <- bind_rows(contenido$website) %>%
+          janitor::clean_names() %>%
+          rename_with(~paste0("website_", .))
 
         # row_1 <- contenido[[11]][[1]]
         # row_2 <- contenido[[11]][[2]]
@@ -114,9 +130,8 @@ search_contacts <- function(user_code, api_token, search_term = "") {
 
 
         # Clean final data frame ----------------------------------------------
-        contenido <- bind_cols(contenido, phone, email, website) %>%
-          select(-email, -phone, -website, -address,
-                 -contact_custom_fields, -custom_fields)
+        contenido <- bind_cols(contenido, phone, email, website, address) %>%
+          select(-contact_custom_fields, -custom_fields)
 
         return(contenido)
   }
