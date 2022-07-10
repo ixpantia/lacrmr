@@ -49,44 +49,33 @@ search_contacts <- function(user_code, api_token, search_term = "") {
 
         # Clean PHONE ---------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$phone[i][(length(contenido$phone[[i]]$Text) == 0)] <-
+          contenido$phone[i][purrr::is_empty(contenido$phone[[i]])] <-
             list(data.frame("Text" = NA, "Type" = NA,
                             "Clean" = NA, "TypeId" = NA))
         }
 
-        phone <- dplyr::bind_rows(contenido$phone) %>%
+        phone <- contenido %>%
+          select(contact_id, phone) %>%
+          tidyr::unnest(cols = c(phone)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("phone_", .))
+          rename_with(~paste0("phone_", .), !starts_with("contact_id"))
 
         # Clean MAIL ----------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$email[i][(length(contenido$email[[i]]$Text) == 0)] <-
+          contenido$email[i][purrr::is_empty(contenido$email[[i]])] <-
             list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
-        email <- dplyr::bind_rows(contenido$email) %>%
+        email <- contenido %>%
+          select(contact_id, email) %>%
+          tidyr::unnest(cols = c(email)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("email_", .))
-
-        # TODO: Ref #78
-        # # check email
-        # for (i in 1:nrow(contenido)) {
-        #   # print(i)
-        #   print(
-        #     paste(nrow(contenido[[9]][[i]]), "en linea", i)
-        #     )
-        # }
-        #
-
-        # email <- do.call(rbind.data.frame, contenido$email)
-        # email <- email %>%
-        #   select(Text, Type) %>%
-        #   select(email = Text, email_type = Type)
+          rename_with(~paste0("email_", .), !starts_with("contact_id"))
 
 
         # Clean ADDRESS -------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$address[i][(length(contenido$address[[i]]$Street) == 0)] <-
+          contenido$address[i][purrr::is_empty(contenido$address[[i]])] <-
             list(data.frame("Street" = NA,
                             "City" = NA,
                             "State" = NA,
@@ -95,41 +84,28 @@ search_contacts <- function(user_code, api_token, search_term = "") {
                             "Type" = NA))
         }
 
-        for (i in 1:nrow(contenido)) {
-          contenido$email[i][(length(contenido$email[[i]]$Text) == 0)] <-
-            list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
-        }
-
-        address <- bind_rows(contenido$address) %>%
+        address <- contenido %>%
+          select(contact_id, address) %>%
+          tidyr::unnest(cols = c(address)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("address_", .))
+          rename_with(~paste0("address_", .), !starts_with("contact_id"))
 
 
         # Clean WEBSITE -------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$website[i][(length(contenido$website[[i]]$Text) == 0)] <-
+          contenido$website[i][purrr::is_empty(contenido$website[[i]])] <-
             list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
-        website <- bind_rows(contenido$website) %>%
+        website <- contenido %>%
+          select(contact_id, website) %>%
+          tidyr::unnest(cols = c(website)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("website_", .))
-
-        # row_1 <- contenido[[11]][[1]]
-        # row_2 <- contenido[[11]][[2]]
-        # bind_rows(row_1, row_2)
-
-        # one <- starwars[1:4, ]
-        # two <- starwars[9:12, ]
-        # bind_rows(list(a = one, b = two), .id = "id")
-
-
-        #
-        # website <- do.call(rbind.data.frame, contenido$website) %>%
-        #   select(website = Text)
-
+          rename_with(~paste0("website_", .), !starts_with("contact_id"))
 
         # Clean final data frame ----------------------------------------------
+
+
         contenido <- bind_cols(contenido, phone, email, website, address) %>%
           select(-contact_custom_fields, -custom_fields)
 
