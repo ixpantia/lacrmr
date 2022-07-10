@@ -107,7 +107,8 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         contenido <- purrr::reduce(
           list(contenido, phone, email, website, address),
           dplyr::inner_join, by = "contact_id") %>%
-          select(-contact_custom_fields, -custom_fields)
+          select(-contact_custom_fields, -custom_fields,
+                 -email, -phone, -website, -address)
 
         return(contenido)
   }
