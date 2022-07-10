@@ -104,9 +104,9 @@ search_contacts <- function(user_code, api_token, search_term = "") {
           rename_with(~paste0("website_", .), !starts_with("contact_id"))
 
         # Clean final data frame ----------------------------------------------
-
-
-        contenido <- bind_cols(contenido, phone, email, website, address) %>%
+        contenido <- purrr::reduce(
+          list(contenido, phone, email, website, address),
+          dplyr::inner_join, by = "contact_id") %>%
           select(-contact_custom_fields, -custom_fields)
 
         return(contenido)
