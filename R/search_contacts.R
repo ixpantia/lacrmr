@@ -6,6 +6,12 @@ NULL
 #'
 #' @description Return the contacts information from Less annoying CRM.
 #'
+#' @details The function will return a data frame. The number of rows depends
+#' on the number of entries that a contact_id have in any of the following
+#' variables: phone, website, email, address. For example, there could be only
+#' 17 unique contact_id's, nonetheless, if one of those contact_id's have
+#' three emails, the final data frame will have 19 rows.
+#'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
 #' @param search_term The contact name or other term to make an specific call
@@ -41,10 +47,10 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         # Pull only contact names, otherwise this will pull a nested list of
         # companies where users were assigned as independent contacts
         contenido <- contenido %>%
-          filter(!is.na(Result.FirstName))
+          dplyr::filter(!is.na(Result.FirstName))
 
         contenido <- janitor::clean_names(contenido) %>%
-          rename_with(~stringr::str_remove(., "result_"))
+          dplyr::rename_with(~stringr::str_remove(., "result_"))
 
 
         # Clean PHONE ---------------------------------------------------------
@@ -55,10 +61,10 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         }
 
         phone <- contenido %>%
-          select(contact_id, phone) %>%
+          dplyr::select(contact_id, phone) %>%
           tidyr::unnest(cols = c(phone)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("phone_", .), !starts_with("contact_id"))
+          dplyr::rename_with(~paste0("phone_", .), !tidyr::starts_with("contact_id"))
 
         # Clean MAIL ----------------------------------------------------------
         for (i in 1:nrow(contenido)) {
@@ -67,10 +73,10 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         }
 
         email <- contenido %>%
-          select(contact_id, email) %>%
+          dplyr::select(contact_id, email) %>%
           tidyr::unnest(cols = c(email)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("email_", .), !starts_with("contact_id"))
+          dplyr::rename_with(~paste0("email_", .), !tidyr::starts_with("contact_id"))
 
 
         # Clean ADDRESS -------------------------------------------------------
@@ -85,10 +91,10 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         }
 
         address <- contenido %>%
-          select(contact_id, address) %>%
+          dplyr::select(contact_id, address) %>%
           tidyr::unnest(cols = c(address)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("address_", .), !starts_with("contact_id"))
+          dplyr::rename_with(~paste0("address_", .), !tidyr::starts_with("contact_id"))
 
 
         # Clean WEBSITE -------------------------------------------------------
@@ -98,18 +104,18 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         }
 
         website <- contenido %>%
-          select(contact_id, website) %>%
+          dplyr::select(contact_id, website) %>%
           tidyr::unnest(cols = c(website)) %>%
           janitor::clean_names() %>%
-          rename_with(~paste0("website_", .), !starts_with("contact_id"))
+          dplyr::rename_with(~paste0("website_", .), !tidyr::starts_with("contact_id"))
 
         # Clean final data frame ----------------------------------------------
         contenido <- purrr::reduce(
           list(contenido, phone, email, website, address),
           dplyr::inner_join, by = "contact_id") %>%
-          select(-contact_custom_fields, -custom_fields,
+          dplyr::select(-contact_custom_fields, -custom_fields,
                  -email, -phone, -website, -address) %>%
-          mutate(creation_date = lubridate::ymd_hms(creation_date),
+          dplyr::mutate(creation_date = lubridate::ymd_hms(creation_date),
                  edited_date = lubridate::ymd_hms(edited_date))
 
         return(contenido)

@@ -17,6 +17,13 @@ to the API. If you  want to search for group enter "Group:GROUP_NAME"}
 \description{
 Return the contacts information from Less annoying CRM.
 }
+\details{
+The function will return a data frame. The number of rows depends
+on the number of entries that a contact_id have in any of the following
+variables: phone, website, email, address. For example, there could be only
+17 unique contact_id's, nonetheless, if one of those contact_id's have
+three emails, the final data frame will have 19 rows.
+}
 \examples{
 \dontrun{
 search_contacts(user_code = "6A6E88",
