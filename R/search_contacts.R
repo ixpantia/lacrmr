@@ -108,7 +108,9 @@ search_contacts <- function(user_code, api_token, search_term = "") {
           list(contenido, phone, email, website, address),
           dplyr::inner_join, by = "contact_id") %>%
           select(-contact_custom_fields, -custom_fields,
-                 -email, -phone, -website, -address)
+                 -email, -phone, -website, -address) %>%
+          mutate(creation_date = lubridate::ymd_hms(creation_date),
+                 edited_date = lubridate::ymd_hms(edited_date))
 
         return(contenido)
   }
