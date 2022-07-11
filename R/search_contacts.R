@@ -6,6 +6,12 @@ NULL
 #'
 #' @description Return the contacts information from Less annoying CRM.
 #'
+#' @details The function will return a data frame. The number of rows depends
+#' on the number of entries that a contact_id have in any of the following
+#' variables: phone, website, email, address. For example, there could be only
+#' 17 unique contact_id's, nonetheless, if one of those contact_id's have
+#' three emails, the final data frame will have 19 rows.
+#'
 #' @param user_code The user code to identify your account
 #' @param api_token The api token to connect to your account
 #' @param search_term The contact name or other term to make an specific call
@@ -41,55 +47,76 @@ search_contacts <- function(user_code, api_token, search_term = "") {
         # Pull only contact names, otherwise this will pull a nested list of
         # companies where users were assigned as independent contacts
         contenido <- contenido %>%
-          filter(!is.na(Result.FirstName))
+          dplyr::filter(!is.na(Result.FirstName))
 
-        contenido <- janitor::clean_names(contenido)
+        contenido <- janitor::clean_names(contenido) %>%
+          dplyr::rename_with(~stringr::str_remove(., "result_"))
 
 
         # Clean PHONE ---------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$result_phone[i][(length(contenido$result_phone[[i]]$Text) == 0)] <-
+          contenido$phone[i][purrr::is_empty(contenido$phone[[i]])] <-
             list(data.frame("Text" = NA, "Type" = NA,
                             "Clean" = NA, "TypeId" = NA))
         }
 
-        phone <- do.call(rbind.data.frame, contenido$result_phone)
-        phone <- phone %>%
-          select(Text, Type) %>%
-          select(phone_numer = Text,
-                 phone_type = Type)
+        phone <- contenido %>%
+          dplyr::select(contact_id, phone) %>%
+          tidyr::unnest(cols = c(phone)) %>%
+          janitor::clean_names() %>%
+          dplyr::rename_with(~paste0("phone_", .), !tidyr::starts_with("contact_id"))
 
         # Clean MAIL ----------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$result_email[i][(length(contenido$result_email[[i]]$Text) == 0)] <-
+          contenido$email[i][purrr::is_empty(contenido$email[[i]])] <-
             list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
-        email <- do.call(rbind.data.frame, contenido$result_email)
-        email <- email %>%
-          select(Text, Type) %>%
-          select(email = Text, email_type = Type)
+        email <- contenido %>%
+          dplyr::select(contact_id, email) %>%
+          tidyr::unnest(cols = c(email)) %>%
+          janitor::clean_names() %>%
+          dplyr::rename_with(~paste0("email_", .), !tidyr::starts_with("contact_id"))
 
 
         # Clean ADDRESS -------------------------------------------------------
-        # TODO// See ticket #41
+        for (i in 1:nrow(contenido)) {
+          contenido$address[i][purrr::is_empty(contenido$address[[i]])] <-
+            list(data.frame("Street" = NA,
+                            "City" = NA,
+                            "State" = NA,
+                            "Zip" = NA,
+                            "Country" = NA,
+                            "Type" = NA))
+        }
+
+        address <- contenido %>%
+          dplyr::select(contact_id, address) %>%
+          tidyr::unnest(cols = c(address)) %>%
+          janitor::clean_names() %>%
+          dplyr::rename_with(~paste0("address_", .), !tidyr::starts_with("contact_id"))
 
 
         # Clean WEBSITE -------------------------------------------------------
         for (i in 1:nrow(contenido)) {
-          contenido$result_website[i][(length(contenido$result_website[[i]]$Text) == 0)] <-
+          contenido$website[i][purrr::is_empty(contenido$website[[i]])] <-
             list(data.frame("Text" = NA, "Type" = NA, "TypeId" = NA))
         }
 
-        website <- do.call(rbind.data.frame, contenido$result_website) %>%
-          select(website = Text)
-
+        website <- contenido %>%
+          dplyr::select(contact_id, website) %>%
+          tidyr::unnest(cols = c(website)) %>%
+          janitor::clean_names() %>%
+          dplyr::rename_with(~paste0("website_", .), !tidyr::starts_with("contact_id"))
 
         # Clean final data frame ----------------------------------------------
-        contenido <- bind_cols(contenido, phone, email, website) %>%
-          select(-result_email, -result_phone, -result_website, -result_address,
-                 -result_contact_custom_fields, -result_custom_fields) %>%
-          rename_with(~stringr::str_remove(., "result_"))
+        contenido <- purrr::reduce(
+          list(contenido, phone, email, website, address),
+          dplyr::inner_join, by = "contact_id") %>%
+          dplyr::select(-contact_custom_fields, -custom_fields,
+                 -email, -phone, -website, -address) %>%
+          dplyr::mutate(creation_date = lubridate::ymd_hms(creation_date),
+                 edited_date = lubridate::ymd_hms(edited_date))
 
         return(contenido)
   }
