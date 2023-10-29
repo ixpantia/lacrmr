@@ -31,7 +31,10 @@ Suggests:
     knitr,
     rmarkdown,
     httptest,
-    mockery
+    mockery,
+    lubridate,
+    purrr,
+    tidyr
 VignetteBuilder: knitr
 Imports: 
     dplyr,
