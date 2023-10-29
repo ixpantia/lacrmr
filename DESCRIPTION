@@ -1,6 +1,6 @@
 Package: lacrmr
 Title: Connect to the 'Less Annoying CRM' API
-Version: 1.0.5
+Version: 1.0.6
 Authors@R: c(
   person(given = "ixpantia, 
          family = SRL",
