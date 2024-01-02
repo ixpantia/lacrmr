@@ -1,12 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# lacrmr <a href="https://ixpantia.github.io/lacrmr/"><img src="man/figures/lacrmR.png" align="right" width="30%"></a>
+# lacrmr <a><img src="https://storage.googleapis.com/ix-paquetes-internos/logo-lacrmr.png" align="right" width="30%"></a>
 
 <!-- badges: start -->
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/lacrmr)](https://cran.r-project.org/package=lacrmr)
+
 <!-- badges: end -->
 
 Get the information from your Less Annoying Customer Relationship
@@ -46,10 +47,9 @@ devtools::install_github("ixpantia/lacrmr")
 
 ## Credentials:
 
-At first you will need to obtain your [user code and API
-token](https://www.lessannoyingcrm.com/help/how-to-get-your-user-code-and-api-key)
-from your Less Annoying CRM. Once you have your credentials, you will be
-able to use the functions and take your lacrm data into R!
+At first you will need to obtain you user code and API token from your
+Less Annoying CRM. Once you have your credentials, you will be able to
+use the functions and take your lacrm data into R!
 
 If you need advice on how to do this and also what are the best
 practices to not leave your credentials in your code, check the package
